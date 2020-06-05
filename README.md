@@ -127,7 +127,7 @@ This example can be split down into the following Entities:
 
 When architecting your Smart System, it is unnecessary to start from scratch, so the first step is to check to see if there are any existing NGSI-LD data models which are capable of describing your system. As it happens, there are existing [Smart Data Models](https://www.fiware.org/developers/smart-data-models/) for both **Building** and  **Device**, so it is possible to check if these will fulfill our needs:
 
-![](https://fiware.github.io/tutorials.Understanding-At-Context/img/fiware.png)
+![](https://fiware.github.io/tutorials.Understanding-At-Context/img/swagger.png)
 
 -  The **Building** Data Model can be inspected [here](https://swagger.lab.fiware.org/?url=https://fiware.github.io/tutorials.NGSI-LD/swagger/building.yaml)
 -  The **Device** Data Model can be inspected [here](https://swagger.lab.fiware.org/?url=https://fiware.github.io/tutorials.NGSI-LD/swagger/device.yaml)
