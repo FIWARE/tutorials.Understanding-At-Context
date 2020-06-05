@@ -164,14 +164,14 @@ Furthermore it will be necessary add additional metadata to items to ensure that
 ```json
 {
     "temperature" : 30,
-    "unitCode" : "CEL"
-    "providedBy": "urn:ngsi-ld:TemperatureSensor:001"
+    "unitCode" : "CEL",
+    "providedBy": "urn:ngsi-ld:TemperatureSensor:001",
     "observedAt" :"2016-03-15T11:00:00.000"
 },
 {
     "fillingLevel" : 0.5,
-    "unitCode" : "CEL"
-    "providedBy": "urn:ngsi-ld:FillingSensor:001"
+    "unitCode" : "CEL",
+    "providedBy": "urn:ngsi-ld:FillingSensor:001",
     "observedAt" :"2016-03-15T11:00:00.000"
 }
 ```
