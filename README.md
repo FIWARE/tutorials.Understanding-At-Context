@@ -108,6 +108,8 @@ Although the each data entity within your context will vary according to your us
 
 It is perhaps best to illustrate this using an example. The Underlying Data Models can be created using many different tools, however this example will use Swagger [schema](https://swagger.io/docs/specification/data-models/) objects defined using the [Open API 3](https://swagger.io/docs/specification/about/) Standard. The examples are valid Swagger specifications, but in reality, we are not interested in defining in paths and operations, as these are already defined using the [NGSI-LD API](https://swagger.lab.fiware.org/?url=https://fiware.github.io/tutorials.NGSI-LD/swagger/ngsi-ld.yaml)
 
+## The Scenario
+
 Consider the following Smart Agricultural Scenario:
 
 > _Imagine a farmer owns a barn. The barn contains two IoT devices - a temperature sensor and a filling level sensor indicating how much hay is currently stored in the barn_
@@ -121,9 +123,72 @@ This example can be split down into the following Entities:
     - Temperature Senor
     - Filling Level Sensor
 
+## Baseline Data Models
+
+When architecting your Smart System, it is unnecessary to start from scratch, so the first step is to check to see if there are any existing NGSI-LD data models which are capable of describing your system. As it happens, there are existing [Smart Data Models](https://www.fiware.org/developers/smart-data-models/) for both **Building** and  **Device**, so it is possible to check if these will fulfill our needs:
+
+![](https://fiware.github.io/tutorials.Understanding-At-Context/img/fiware.png)
+
+-  The **Building** Data Model can be inspected [here](https://swagger.lab.fiware.org/?url=https://fiware.github.io/tutorials.NGSI-LD/swagger/building.yaml)
+-  The **Device** Data Model can be inspected [here](https://swagger.lab.fiware.org/?url=https://fiware.github.io/tutorials.NGSI-LD/swagger/device.yaml)
 
 
+Many common concepts such as **Person** or **Product** have been formalized by
+[Schema.org](https://schema.org/), which is a collaborative community activity for promoting schemas for structured data on the Internet. The schema.org [Person](https://schema.org/Person) can be described using a JSON-LD schema, and may be co-opted as an NGSI-LD data model.
 
+-  The **Person** Data Model can be inspected [here](https://swagger.lab.fiware.org/?url=https://fiware.github.io/tutorials.NGSI-LD/swagger/person.yaml)
+
+It should be noted that definitions of the models examined so far are very general and will need further modifications to be of use in a working system, however using these models as the basis of interoperability will ensure that the resulting `@context` file will be understandable to the widest number of systems.
+
+## Amending Models
+
+The base data models are useful as a starting point but some enumerated values or attributes will be redundant other required fields will be missing. The base models will therefore need to be modified to create proper digital twins specific to the scenario we are modelling
+
+### Removing Redundant Items
+
+Many attributes within data models are optional, and not all options will be valid for our scenario. Take for example, the `category` attribute within the **Building** model - this offers over 60 types of building useful in multiple domains such as Smart Cities and Smart Agriculture, it is therefore safe to exclude certain options from our own `@context` file since they are unlikely to be used. For example a **Building** categorised as `cathedral` is unlikely to be found on a farm.
+
+It is logical to remove bloat before committing to using a particular model as it will help reduce the size of payloads used.
+
+### Extending
+
+Looking at the **Building** model, it is obvious that we will need a **Building** entity of `category="barn"`, however the base **Building** model does not offer additional attributes such as `temperature` or `fillingLevel` - these would need to be added to the base  **Building** so that the context broker is able to hold the _context_ - i.e. the current state of the building.
+
+Furthermore it will be necessary add additional metadata to items to ensure that the context data is understandable. This will mean we will need things such as:
+
+-  The Units of measurement
+-  Which sensor provided the measurement
+-  When was the measurement taken
+-  and so on.
+
+```json
+{
+    "temperature" : 30,
+    "unitCode" : "CEL"
+    "providedBy": "urn:ngsi-ld:TemperatureSensor:001"
+    "observedAt" :"2016-03-15T11:00:00.000"
+},
+{
+    "fillingLevel" : 0.5,
+    "unitCode" : "CEL"
+    "providedBy": "urn:ngsi-ld:FillingSensor:001"
+    "observedAt" :"2016-03-15T11:00:00.000"
+}
+```
+
+Fortunately most of these are predefined in NGSI-LD
+
+- `unitCode` is specified from a common list such as the UN/CEFACT [List of measurement codes](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf)
+- `observedAt` is a DateTime a well-defined temporal property  expressed in UTC, using the ISO 8601 format.
+- `providedBy` is an example recommendation
+
+
+Many measurement attributes are defined within the [SAREF](https://ontology.tno.nl/saref/) ontology, but other ontologies could be used
+
+
+### Subclassing
+
+Looking at the **Device** model, it can be seen that there is
 
 
 
