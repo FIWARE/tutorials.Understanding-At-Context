@@ -154,7 +154,23 @@ It is logical to remove bloat before committing to using a particular model as i
 
 Looking at the **Building** model, it is obvious that we will need a **Building** entity of `category="barn"`, however the base **Building** model does not offer additional attributes such as `temperature` or `fillingLevel` - these would need to be added to the base  **Building** so that the context broker is able to hold the _context_ - i.e. the current state of the building.
 
-Furthermore it will be necessary add additional metadata to items to ensure that the context data is understandable. This will mean we will need things such as:
+Many types of device reading (i.e. context data attributes) have been predefined within the [SAREF ontology](https://ontology.tno.nl/saref/) - so it is reasonable to use the URIs defining these attributes as a basis of extending our model.
+
+- `temperature` (`https://w3id.org/saref#temperature`)
+- `fillingLevel` (`https://w3id.org/saref#fillingLevel`)
+
+Many measurement attributes are defined within the [SAREF](https://ontology.tno.nl/saref/) ontology, but other ontologies could equally be used. For example, the [iotschema.org schema](https://github.com/iot-schema-collab/iotschema/blob/master/capability.jsonld) contains equivalent term URIs like `http://iotschema.org/temperature` which could also be used here, the additional data can be added to the `@graph` to show the equivalence of the two using Simple Knowledge Organization System terms [SKOS](https://www.w3.org/2009/08/skos-reference/skos.html#).
+
+### Adding metadata
+
+The key goal in designing  NGSI-LD data models (as opposed to a generic hierarchy of ontologies),  is that wherever posssible, every _Property_ attribute of  a model represents the context data for a digital twin of something tangible in the real world.
+
+This formulation discourages deep nested hierarchies. A **Building** has a **temperature**, a **Building** has a **fillingLevel** - anything else is defined as a _Relationship_ -  a **Building** has an **owner** which links the **Building** entity to a separate **Person** entity.
+
+However just holding the values of properties is insufficient. Saying that `temperature=6` is meaningless unless you also obtain certain meta data, such as
+_When was the reading taken?_  _Which device made the reading?_  _What units is it measured in?_  _How accurate is the device?_ and so on.
+
+Therefore supplementary metadata items will be necessary to ensure that the context data is understandable. This will mean we will need things such as:
 
 -  The Units of measurement
 -  Which sensor provided the measurement
@@ -176,19 +192,60 @@ Furthermore it will be necessary add additional metadata to items to ensure that
 }
 ```
 
-Fortunately most of these are predefined in NGSI-LD
+Each one of these attributes has a name, and therefore requires a definition within the `@context`. Fortunately most of these are predefined in the core NGSI-LD specification:
 
 - `unitCode` is specified from a common list such as the UN/CEFACT [List of measurement codes](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf)
 - `observedAt` is a DateTime a well-defined temporal property  expressed in UTC, using the ISO 8601 format.
-- `providedBy` is an example recommendation
-
-
-Many measurement attributes are defined within the [SAREF](https://ontology.tno.nl/saref/) ontology, but other ontologies could be used
+- `providedBy` is an example recommendation within the NGSI-LD specification.
 
 
 ### Subclassing
 
-Looking at the **Device** model, it can be seen that there is
+As well as extending models by adding new attributes, it is also posssible to extend models by subclassing. Looking at the **Device** model, it can be seen that whereas common definitions useful to all IoT device such as `batteryLevel` are defined in the model, there are no additional attributes within the model explaining which readings are being made.
+
+It would be possible to continue to use the **Device** model and to add both
+`temperature` and `fillingLevel`, but it is highly unlikely that a filling sensor would also provide temperatures and vice-versa. In this case, it is therefore preferred to create a new subclass so that temperature sensors can be considered a different type of entity to filling sensors.
+
+
+## Putting this into action
+
+
+### Initial Bas
+
+The following models are defined within the Smart Data Models domain.
+
+```yaml
+components:
+  schemas:
+
+    # This is the base definition of a building
+    Building:
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/building.yaml#/Building"
+    # This is all of the defined building categories within
+    # within the Smart Cities and Smart AgriFood domain
+    BuildingCategory:
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/building.yaml#/Categories"
+
+    # This is a base definition of an IoT Device
+    Device:
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/device.yaml#/Device"
+    # This is the full list of IoT Device Categories
+    DeviceCategory:
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/Categories"
+    # This is a full list of context attributes measurable by devices
+    ControlledProperties:
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/ControlledProperties"
+
+    # This is an NGSI-LD defintion of a person.
+    # Since the schema.org Person ig JSON-LD,
+    # additional type and id attreibutes are require
+    Person:
+      allOf:
+        - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/ngsi-ld.yaml#/Common"
+        - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/schema.org.yaml#/Person"
+```
+
+##
 
 
 
