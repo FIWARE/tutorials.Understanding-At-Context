@@ -300,6 +300,30 @@ FillingLevelSensor:
 -  The updated Data Models for an Agricultural Smart System can be inspected [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
 
 
+## Generating Context Files
+
+```console
+./services create
+```
+
+### Validating a Swagger Data Models
+
+```console
+./services validate [file]
+```
+
+### Generating an NGSI-LD `@context` file
+
+```console
+./services ngsi [file]
+```
+
+### Generating a JSON-LD `@context` file
+
+```console
+./services jsonld [file]
+```
+
 ## License
 
 [MIT](LICENSE) © 2019-2020 FIWARE Foundation e.V.
