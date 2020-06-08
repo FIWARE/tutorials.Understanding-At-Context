@@ -245,7 +245,9 @@ components:
         - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/schema.org.yaml#/Person"
 ```
 
--  The baseline Data Model can be inspected [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml)
+![](https://fiware.github.io/tutorials.Understanding-At-Context/img/baseline.png)
+
+The baseline Data Model can be inspected [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml)
 
 ### Updated Data models
 
@@ -297,7 +299,9 @@ FillingLevelSensor:
 
 5) The other definitions remain unchanged.
 
--  The updated Data Models for an Agricultural Smart System can be inspected [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
+![](https://fiware.github.io/tutorials.Understanding-At-Context/img/updated.png)
+
+The updated Data Models for an Agricultural Smart System can be inspected [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
 
 
 ## Generating Context Files
