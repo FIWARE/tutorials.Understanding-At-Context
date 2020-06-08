@@ -1,0 +1,159 @@
+--- 
+components: 
+  schemas: 
+
+    # This is the base definition of a building
+    Building: 
+      
+      allOf:
+        - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/building.yaml#/Building"
+
+      properties:
+        temperature:
+          $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/temperature
+        fillingLevel:
+          $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/fillingLevel
+    
+
+    # This is reduced list of the defined building categories within
+    # the Smart AgriFood domain
+    BuildingCategory: 
+      description: >
+        -   `barn`
+        -   `cowshed`
+        -   `farm`
+        -   `farm_auxiliary`
+        -   `greenhouse`
+        -   `riding_hall`
+        -   `shed`
+        -   `stable`
+        -   `sty`
+        -   `water_tower`
+      enum: 
+        - barn
+        - cowshed
+        - farm
+        - farm_auxiliary
+        - greenhouse
+        - riding_hall
+        - shed
+        - stable
+        - sty
+        - water_tower
+      type: string
+      x-ngsi: 
+        uri-prefix: "https://uri.fiware.org/ns/data-models#"
+
+
+    # Extend the existing IoT Device model to create a new type with an attribute 
+    TemperatureSensor:
+      type: object
+      required:
+        -  temperature
+      allOf:
+        - $ref: https://fiware.github.io/tutorials.NGSI-LD/models/device.yaml#/Device
+
+      description: >
+        A device that consists of a sensor, has category `saref:Sensor` and is used for the purpose of sensing temperature`.
+      
+      properties:
+        temperature:
+          $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/temperature
+
+
+    # Extend the existing IoT Device model to create a new type with an attribute 
+    FillingLevelSensor:
+      type: object
+      required:
+        -  FillingLevelSensor
+      allOf:
+        - $ref: https://fiware.github.io/tutorials.NGSI-LD/models/device.yaml#/Device
+
+      description: >
+        A device that consists of a sensor, has category `saref:Sensor` and is used for the purpose of sensing filling Level.
+      
+      properties:
+        fillingLevel:
+          $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/fillingLevel
+    
+
+    # This is the full list of IoT Device Categories - it remains unchanged
+    DeviceCategory: 
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/Categories"
+    
+    # This is a reduced list of context attributes measurable by  Agricultural devices
+    ControlledProperties: 
+      type: string
+      x-ngsi:
+        uri-prefix: 'https://w3id.org/saref#'
+      enum:
+        - airPollution
+        - atmosphericPressure
+        - depth
+        - eatingActivity
+        - fillingLevel
+        - humidity
+        - location
+        - milking
+        - motion
+        - movementActivity
+        - occupancy
+        - precipitation
+        - pressure
+        - soilMoisture
+        - solarRadiation
+        - temperature
+        - waterConsumption
+        - weatherConditions
+        - weight
+        - windDirection
+        - windSpeed
+      description: >
+          -   `airPollution`
+          -   `atmosphericPressure`
+          -   `depth`
+          -   `eatingActivity`
+          -   `fillingLevel`
+          -   `humidity`
+          -   `location`
+          -   `milking`
+          -   `motion`
+          -   `movementActivity`
+          -   `occupancy`
+          -   `precipitation`
+          -   `pressure`
+          -   `soilMoisture`
+          -   `solarRadiation`
+          -   `temperature`
+          -   `waterConsumption`
+          -   `weatherConditions`
+          -   `weight`
+          -   `windDirection`
+          -   `windSpeed`
+
+
+
+    # This is a defintion of a person - it remains unchanged
+    Person:
+      allOf:
+        - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/ngsi-ld.yaml#/Common"
+        - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/schema.org.yaml#/Person"
+info: 
+  description: "Model Definitions for an Agricultural Smart System"
+  title: Smart Agri Data Models
+  version: "1.0.0"
+openapi: "3.0.0"
+
+
+# These paths are merely representative.
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      responses: 
+        ? "200"
+        : 
+          description:  OK
+          content: 
+            application/ld+json: 
+              schema: 
+                type: object
