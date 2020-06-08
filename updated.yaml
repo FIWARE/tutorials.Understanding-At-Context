@@ -17,33 +17,62 @@ components:
 
     # This is reduced list of the defined building categories within
     # the Smart AgriFood domain
-    BuildingCategory: 
-      description: >
-        -   `barn`
-        -   `cowshed`
-        -   `farm`
-        -   `farm_auxiliary`
-        -   `greenhouse`
-        -   `riding_hall`
-        -   `shed`
-        -   `stable`
-        -   `sty`
-        -   `water_tower`
-      enum: 
-        - barn
-        - cowshed
+    BuildingCategories: 
+      enum:
+        # Accommodation
         - farm
+        # Agricultural/Plant production
+        - barn
+        - conservatory
+        - cowshed
         - farm_auxiliary
         - greenhouse
-        - riding_hall
-        - shed
         - stable
         - sty
+        # Storage
+        - hangar
+        - hut
+        - shed
+        # Power/Technical buildings
+        - digester
+        - service
+        - transformer_tower
         - water_tower
-      type: string
-      x-ngsi: 
-        uri-prefix: "https://uri.fiware.org/ns/data-models#"
 
+      description: |
+
+        ### Accommodation
+
+        -   `farm` -  A residential building on a farm (farmhouse). For other buildings see below building=farm_auxiliary, building=barn, … If in your country farmhouse looks same as general residential house then you can tag as building=house as well. See also landuse=farmyard for the surrounding area 
+
+        ### Agricultural/Plant production
+        
+        -   `barn` -  An agricultural building used for storage and as a covered workplace. 
+        -   `conservatory` -  A building or room having glass or tarpaulin roofing and walls used as an indoor garden or a sunroom (winter garden). 
+        -   `cowshed` - A cowshed (cow barn, cow house) is a building for housing cows, usually found on farms. 
+        -   `farm_auxiliary` -  A building on a farm that is not a dwelling (use 'farm' or 'house' for the farm house). 
+        -   `greenhouse` -  A greenhouse is a glass or plastic covered building used to grow plants. Use landuse=greenhouse_horticulture for an area containing multiple greenhouses  
+        -   `stable` -  A stable is a building where horses are kept. 
+        -   `sty` - A sty (pigsty, pig ark, pig-shed) is a building for raising domestic pigs, usually found on farms.  
+              
+        ### Storage
+        
+        -   `hangar` -  A hangar is a building used for the storage of airplanes, helicopters or space-craft. Consider adding aeroway=hangar, when appropriate. 
+        -   `hut` - A hut is a small and crude shelter. Note that this word has two meanings -   `it may be synonym of building=shed, it may be a residential building of low quality. 
+        -   `shed` -  A shed is a simple, single-storey structure in a back garden or on an allotment that is used for storage, hobbies, or as a workshop.  
+            
+        ### Power/Technical buildings
+        
+        -   `digester` -  A digester is a bioreactor for the production of inflatable biogas from biomass.  
+        -   `service` - Service building usually is a small unmanned building with certain machinery (like pumps or transformers).  
+        -   `transformer_tower` - A transformer tower is a characteristic tall building comprising a distribution transformer and constructed to connect directly to a medium voltage overhead power line. Quite often the power line has since been undergrounded but the building may still serve as a substation. If the building is still in use as a substation it should additionally be tagged as power=substation + substation=minor_distribution.  
+        -   `water_tower` - A water tower 
+        
+      type: string
+      externalDocs: 
+        url: "https://wiki.openstreetmap.org/wiki/Map_Features#Building"
+      x-ngsi: 
+        uri-prefix: "https://wiki.openstreetmap.org/wiki/Tag:building%3D"
 
     # Extend the existing IoT Device model to create a new type with an attribute 
     TemperatureSensor:

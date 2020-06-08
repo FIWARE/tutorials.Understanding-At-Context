@@ -8,7 +8,7 @@ components:
     # This is all of the defined building categories within
     # within the Smart Cities and Smart AgriFood domain
     BuildingCategory: 
-      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/building.yaml#/Categories"
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/openstreetmap.yaml#/Categories"
 
     # This is a base definition of an IoT Device
     Device: 
