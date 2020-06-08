@@ -27,7 +27,6 @@ switch (command) {
     swagger.ngsi(argv.file);
     break;
   case 'jsonld':
-    out = out + '-context.jsonld';
     swagger.jsonld(argv.file, argv.lang || 'en');
     break;
   default:
