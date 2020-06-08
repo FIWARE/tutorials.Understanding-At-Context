@@ -210,7 +210,7 @@ It would be possible to continue to use the **Device** model and to add both
 ## Putting this into action
 
 
-### Initial Bas
+### Initial Baseline data models
 
 The following models are defined within the Smart Data Models domain.
 
@@ -245,8 +245,59 @@ components:
         - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/schema.org.yaml#/Person"
 ```
 
-##
+-  The baseline Data Model can be inspected [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml)
 
+### Updated Data models
+
+
+1) **Building** must be updated to accommodate `temperature` and `fillingLevel`. Both of these properties have been defined within SAREF terms.
+
+```yaml
+Building:
+
+  allOf:
+    - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/building.yaml#/Building"
+
+  properties:
+    temperature:
+      $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/temperature
+    fillingLevel:
+      $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/fillingLevel
+```
+
+2)  The list of  defined building categories can be reduced to items found within the Agricultural domain (e.g. `barn`, `cowshed`, `farm`, `farm_auxiliary`, `greenhouse`, `riding_hall`, `shed`, `stable`, `sty`, `water_tower`)
+
+3) The base Device can be removed and replaced with two new models which extend it - `TemperatureSensor` and `FillingLevelSensor`. Once again these add additional SAREF terms to the base `Device` class.
+
+```yaml
+TemperatureSensor:
+  type: object
+  required:
+    -  temperature
+  allOf:
+    - $ref: https://fiware.github.io/tutorials.NGSI-LD/models/device.yaml#/Device
+  properties:
+    temperature:
+      $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/temperature
+```
+
+```yaml
+FillingLevelSensor:
+  type: object
+  required:
+    -  FillingLevelSensor
+  allOf:
+    - $ref: https://fiware.github.io/tutorials.NGSI-LD/models/device.yaml#/Device
+  properties:
+    fillingLevel:
+      $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/fillingLevel
+```
+
+4) The list of controlled attributes can be reduced to those measured by Agricultural devices (e.g `airPollution`, `atmosphericPressure`, `depth`, `eatingActivity`, `fillingLevel`, `humidity`, `location`, `milking`, `motion`, `movementActivity`, `occupancy`, `precipitation`, `pressure`, `soilMoisture`, `solarRadiation`, `temperature`, `waterConsumption`, `weatherConditions`, `weight`, `windDirection`, `windSpeed`)
+
+5) The other definitions remain unchanged.
+
+-  The updated Data Models for an Agricultural Smart System can be inspected [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
 
 
 ## License
