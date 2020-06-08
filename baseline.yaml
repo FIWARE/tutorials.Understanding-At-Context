@@ -25,6 +25,8 @@ components:
       allOf:
         - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/ngsi-ld.yaml#/Common"
         - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/schema.org.yaml#/Person"
+    Gender:
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/schema.org.yaml#/GenderType"
 info: 
   description: "Base Model Definitions from Smart Data Models"
   title: Baseline Models

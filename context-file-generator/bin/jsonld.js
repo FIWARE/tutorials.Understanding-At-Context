@@ -2,7 +2,6 @@ function addCommonContextURLs(context) {
   context['ngsi-ld'] = 'https://uri.etsi.org/ngsi-ld/';
   context.fiware = 'https://uri.fiware.org/ns/data-models#';
   context.schema = 'https://schema.org/';
-
 }
 
 function addCommonGraphURLs(context) {
@@ -20,19 +19,24 @@ function replaceCommonContextURLs(text) {
 function addEntry(text, type, key, uri, value, expand) {
   if (expand) {
     if (type === 'Property' || type === 'GeoProperty') {
+      let entry;
       if (value.type === 'object') {
-        text.push('"' + key + '": "' + uri + '"');
+        entry = '"' + key + '": "' + uri + '"';
+      } else if (value.format === 'date-time') {
+        entry = '"' + key + '": {"@id": "' + uri + '", "@type": "xs:dateTime"}';
+      } else if (value.format === 'URL' || value.format === 'uri') {
+        entry = '"' + key + '": {"@id": "' + uri + '", "@type": "xs:anyURI"}';
       } else {
-        text.push(
+        entry =
           '"' +
-            key +
-            '": {"@id": "' +
-            uri +
-            '", "@type": "xsd:' +
-            value.type +
-            '"}'
-        );
+          key +
+          '": {"@id": "' +
+          uri +
+          '", "@type": "xsd:' +
+          value.type +
+          '"}';
       }
+      text.push(entry);
     } else if (type === 'Relationship') {
       text.push('"' + key + '": {"@id": "' + uri + '", "@type": "@id"}');
     } else if (type === 'EnumProperty') {
@@ -135,17 +139,15 @@ function addContexts(ngsi, schemaProperties, text, expand, addKeys) {
     }
 
     if (value.allOf) {
-      value.allOf.forEach (elem => {
-        
-        if(elem.properties){
+      value.allOf.forEach(elem => {
+        if (elem.properties) {
           Object.keys(elem.properties).forEach(key => {
             const innerValue = elem.properties[key];
             const innerProp = innerValue['x-ngsi'] || {};
-            innerProp['uri-prefix'] = innerProp['uri-prefix'] || prop['uri-prefix'];
+            innerProp['uri-prefix'] =
+              innerProp['uri-prefix'] || prop['uri-prefix'];
             const uri = innerProp['uri-prefix'] + key;
             const type = innerProp.type || 'Property';
-
-
 
             addEntry(text, type, key, uri, innerValue, expand);
           });

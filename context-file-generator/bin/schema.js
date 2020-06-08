@@ -10,8 +10,7 @@ const common = {
     'https://jason-fox.github.io/swagger-datamodel-test/common.yaml#/description',
   location:
     'https://jason-fox.github.io/swagger-datamodel-test/common.yaml#/location',
-  name:
-    'https://jason-fox.github.io/swagger-datamodel-test/common.yaml#/name'
+  name: 'https://jason-fox.github.io/swagger-datamodel-test/common.yaml#/name'
 };
 
 function getModel(value, ngsi) {
@@ -72,7 +71,7 @@ function schemaToYaml(obj) {
             }
 
             if (value.type == 'array') {
-            	inner.items = value.items;
+              inner.items = value.items;
             }
 
             unordered[key] = inner;

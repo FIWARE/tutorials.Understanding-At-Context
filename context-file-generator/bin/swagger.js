@@ -22,7 +22,6 @@ async function validate(file) {
   }
 }
 
-
 async function dereferenceYaml(file) {
   try {
     api = await SwaggerParser.dereference(file);
@@ -33,26 +32,21 @@ async function dereferenceYaml(file) {
   }
 }
 
-
-
-async function markdown(input,lang) {
+async function markdown(input, lang) {
   const text = [];
 
   await dereferenceYaml(input);
 
   Markdown.addText(text, api);
   Markdown.addExamples(text, api);
-  console.log( text.join('\n'));
+  console.log(text.join('\n'));
 }
 
 async function ngsi(input, lang) {
   JSONLD.addCommonContextURLs(context);
   await dereferenceYaml(input);
 
-
-  console.log(
-    JSON.stringify(JSONLD.getContext(api, context, false), null, 4)
-  );
+  console.log(JSON.stringify(JSONLD.getContext(api, context, false), null, 4));
 }
 
 async function jsonld(input, lang) {

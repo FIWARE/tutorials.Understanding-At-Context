@@ -167,6 +167,8 @@ components:
       allOf:
         - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/ngsi-ld.yaml#/Common"
         - $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/schema.org.yaml#/Person"
+    Gender:
+      $ref: "https://fiware.github.io/tutorials.NGSI-LD/models/schema.org.yaml#/GenderType"
 info: 
   description: "Model Definitions for an Agricultural Smart System"
   title: Smart Agri Data Models
