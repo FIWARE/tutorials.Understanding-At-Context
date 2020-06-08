@@ -35,3 +35,7 @@ jspm_packages/
 .eslintcache
 *.tgz
 .next
+
+datamodels.md
+datamodels.context-ngsi.jsonld
+datamodels.context.jsonld
