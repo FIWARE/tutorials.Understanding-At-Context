@@ -47,6 +47,7 @@ available as Postman documentation
         -   [Validating a Swagger Data Models](#validating-a-swagger-data-models)
         -   [Generating an NGSI-LD `@context` file](#generating-an-ngsi-ld-context-file)
         -   [Generating a JSON-LD `@context` file](#generating-a-json-ld-context-file)
+        -   [Generating Documentation](#generating-documentation)
 
 </details>
 
@@ -440,6 +441,7 @@ An NGSI-LD `@context` file can be generated from a Swagger data model as follows
 #### Terminal - Result:
 
 ```text
+Creating a NGSI-LD @context file for normalized interactions
 datamodels.context-ngsi.jsonld created
 ```
 
@@ -572,6 +574,7 @@ An JSON-LD `@context` file can be generated from a Swagger data model as follows
 #### Terminal - Result:
 
 ```text
+Creating a JSON-LD @context file for key-values interactions
 datamodels.context.jsonld created
 ```
 
@@ -623,6 +626,23 @@ Opening the generated file, the following structure can be found:
     ]
 }
 ```
+
+
+
+### Generating Documentation
+
+```console
+./services markdown [file]
+```
+
+#### Terminal - Result:
+
+```text
+Creating Documentation for the Data Models
+datamodels.md created
+```
+
+A markdown file holding the documentation for the data models is returned
 
 ## License
 
