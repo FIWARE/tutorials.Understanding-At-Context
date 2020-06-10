@@ -40,7 +40,7 @@ available as Postman documentation
         -   [Extending](#extending)
         -   [Adding metadata](#adding-metadata)
         -   [Subclassing](#subclassing)
-    -   [Using Swagger to extendng the Baseline data models](#using-swagger-to-extendng-the-baseline-data-models)
+    -   [Using Swagger to extend the Baseline data models](#using-swagger-to-extend-the-baseline-data-models)
         -   [Initial Baseline data models](#initial-baseline-data-models)
         -   [Updated Data models](#updated-data-models)
     -   [Autogenerating `@Context` Files from Swagger](#autogenerating-context-files-from-swagger)
@@ -288,7 +288,7 @@ highly unlikely that a filling sensor would also provide temperatures and vice-v
 preferred to create a new subclass so that temperature sensors can be considered a different type of entity to filling
 sensors.
 
-## Using Swagger to extendng the Baseline data models
+## Using Swagger to extend the Baseline data models
 
 ### Initial Baseline data models
 
@@ -327,8 +327,9 @@ components:
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/baseline.png)
 
 The baseline Data Model can be inspected
-[here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml)
-[Source](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
+[here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml).
+
+The source file for the Baseline Date Models, `baseline.yaml` can be found  [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml).
 
 ### Updated Data models
 
@@ -387,8 +388,9 @@ FillingLevelSensor:
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/updated.png)
 
 The updated Data Models for an Agricultural Smart System can be inspected
-[here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
-[Source](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
+[here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml).
+
+The raw source file `agriculture.yaml` can be found [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 
 ## Autogenerating `@Context` Files from Swagger
 
