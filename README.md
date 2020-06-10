@@ -327,7 +327,7 @@ components:
 
 The baseline Data Model can be inspected
 [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml)
-[Source](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
+[Source](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 
 ### Updated Data models
 
@@ -386,8 +386,8 @@ FillingLevelSensor:
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/updated.png)
 
 The updated Data Models for an Agricultural Smart System can be inspected
-[here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
-[Source](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
+[here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
+[Source](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 
 ## Autogenerating `@Context` Files from Swagger
 
@@ -395,14 +395,14 @@ Every working linked data system relies on `@context` files to supply the releva
 such files by hand is a tedious and error prone procedure, so it makes sense to automate the process. The required
 structure will depend on the operations involved.
 
-This tutorial will take the Agricultural Smart System data model file `updated.yaml` and autogenerate alternatives for
+This tutorial will take the Agricultural Smart System data model file `agriculture.yaml` and autogenerate alternatives for
 use by other agents.
 
 > A deeper understanding can be obtained byrun this tutorial with a more advanced example, the equivalent
-> [Data Models](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
+> [Data Models](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 > from the [Supermarket Scenario](https://fiware.github.io/tutorials.Step-by-Step/schema/en/) have also been added to
 > this tutorial. The raw `supermarket.yaml` file is available
-> [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
+> [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 
 ### Validating a Swagger Data Models
 

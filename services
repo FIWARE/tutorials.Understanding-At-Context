@@ -14,7 +14,7 @@ if (( $# < 1 )); then
 fi
 
 command="$1"
-file="updated.yaml"
+file="agriculture.yaml"
 if (( $# == 2 )); then
     file="$2"
 fi
