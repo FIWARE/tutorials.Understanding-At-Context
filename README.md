@@ -23,34 +23,30 @@ available as Postman documentation
 <details>
 <summary><strong>Details</strong></summary>
 
--   [Adding Linked Data concepts to FIWARE Data Entities.](#adding-linked-data-concepts-to-fiware-data-entities)
-    -   [What is Linked Data?](#what-is-linked-data)
-        -   [:arrow_forward: Video: What is Linked Data?](#arrow_forward-video-what-is-linked-data)
-        -   [:arrow_forward: Video: What is JSON-LD?](#arrow_forward-video-what-is-json-ld)
-    -   [What is NGSI-LD?](#what-is-ngsi-ld)
-        -   [NGSI v2 Data Model](#ngsi-v2-data-model)
-        -   [NGSI LD Data Model](#ngsi-ld-data-model)
+-   [What is JSON-LD?](#what-is-json-ld)
+
+    -   [:arrow_forward: Video: What is Linked Data?](#arrow_forward-video-what-is-linked-data)
+    -   [:arrow_forward: Video: What is JSON-LD?](#arrow_forward-video-what-is-json-ld)
+
 -   [Prerequisites](#prerequisites)
     -   [Docker](#docker)
     -   [Cygwin](#cygwin)
--   [Architecture](#architecture)
 -   [Start Up](#start-up)
--   [Creating a "Powered by FIWARE" app based on Linked Data](#creating-a-powered-by-fiware-app-based-on-linked-data)
-    -   [Checking the service health](#checking-the-service-health)
-    -   [Creating Context Data](#creating-context-data)
-        -   [Core Context](#core-context)
-        -   [FIWARE Data Models](#fiware-data-models)
-        -   [Defining Properties within the NGSI-LD entity definition](#defining-properties-within-the-ngsi-ld-entity-definition)
-        -   [Defining Properties-of-Properties within the NGSI-LD entity definition](#defining-properties-of-properties-within-the-ngsi-ld-entity-definition)
-    -   [Querying Context Data](#querying-context-data)
-        -   [Obtain entity data by FQN Type](#obtain-entity-data-by-fqn-type)
-        -   [Obtain entity data by ID](#obtain-entity-data-by-id)
-        -   [Obtain entity data by type](#obtain-entity-data-by-type)
-        -   [Filter context data by comparing the values of an attribute](#filter-context-data-by-comparing-the-values-of-an-attribute)
-        -   [Filter context data by comparing the values of an attribute in an Array](#filter-context-data-by-comparing-the-values-of-an-attribute-in-an-array)
-        -   [Filter context data by comparing the values of a sub-attribute](#filter-context-data-by-comparing-the-values-of-a-sub-attribute)
-        -   [Filter context data by querying metadata](#filter-context-data-by-querying-metadata)
-        -   [Filter context data by comparing the values of a geo:json attribute](#filter-context-data-by-comparing-the-values-of-a-geojson-attribute)
+-   [Creating NGSI-LD Data Models](#creating-ngsi-ld-data-models)
+    -   [The Scenario](#the-scenario)
+    -   [Baseline Data Models](#baseline-data-models)
+    -   [Amending Models](#amending-models)
+        -   [Removing Redundant Items](#removing-redundant-items)
+        -   [Extending](#extending)
+        -   [Adding metadata](#adding-metadata)
+        -   [Subclassing](#subclassing)
+    -   [Using Swagger to extendng the Baseline data models](#using-swagger-to-extendng-the-baseline-data-models)
+        -   [Initial Baseline data models](#initial-baseline-data-models)
+        -   [Updated Data models](#updated-data-models)
+    -   [Autogenerating `@Context` Files from Swagger](#autogenerating-context-files-from-swagger)
+        -   [Validating a Swagger Data Models](#validating-a-swagger-data-models)
+        -   [Generating an NGSI-LD `@context` file](#generating-an-ngsi-ld-context-file)
+        -   [Generating a JSON-LD `@context` file](#generating-a-json-ld-context-file)
 
 </details>
 
@@ -101,6 +97,42 @@ Click on the image above to watch an introductory video on linked data concepts
 [![](https://fiware.github.io/tutorials.NGSI-LD/img/video-logo.png)](https://www.youtube.com/watch?v=vioCbTo3C-4 "JSON-LD")
 
 Click on the image above to watch a video describing the basic concepts behind JSON-LD.
+
+# Prerequisites
+
+## Swagger
+
+The OpenAPI Specification (commonly known as Swagger) is an API description format for REST APIs. A Swaggger spec allows
+you to describe an entire API (such as NGSI-LD itself) however in this tutorial we shall be concentrating on using
+Swagger to define data models.
+
+API specifications can be written in YAML or JSON. The format is easy to learn and readable to both humans and machines.
+The complete OpenAPI Specification can be found on GitHub:
+[OpenAPI 3.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md). This is
+important since we will need a well defined structure to be able to generate `@context` files.
+
+## Docker
+
+To keep things interoperable across different environments the file generator be run using
+[Docker](https://www.docker.com). **Docker** is a container technology which allows to different components isolated
+into their respective environments.
+
+-   To install Docker on Windows follow the instructions [here](https://docs.docker.com/docker-for-windows/)
+-   To install Docker on Mac follow the instructions [here](https://docs.docker.com/docker-for-mac/)
+-   To install Docker on Linux follow the instructions [here](https://docs.docker.com/install/)
+
+## Cygwin
+
+We will start up our services using a simple bash script. Windows users should download [cygwin](http://www.cygwin.com/)
+to provide a command-line functionality similar to a Linux distribution on Windows.
+
+# Start Up
+
+In order to initialize the generator tool run:
+
+```console
+./services create
+```
 
 # Creating NGSI-LD Data Models
 
@@ -255,7 +287,7 @@ highly unlikely that a filling sensor would also provide temperatures and vice-v
 preferred to create a new subclass so that temperature sensors can be considered a different type of entity to filling
 sensors.
 
-## Putting this into action
+## Using Swagger to extendng the Baseline data models
 
 ### Initial Baseline data models
 
@@ -357,7 +389,7 @@ The updated Data Models for an Agricultural Smart System can be inspected
 [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
 [Source](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
 
-## Generating Context Files
+## Autogenerating `@Context` Files from Swagger
 
 Every working linked data system relies on `@context` files to supply the relevant information about the data. Creating
 such files by hand is a tedious and error prone procedure, so it makes sense to automate the process. The required
@@ -371,14 +403,6 @@ use by other agents.
 > from the [Supermarket Scenario](https://fiware.github.io/tutorials.Step-by-Step/schema/en/) have also been added to
 > this tutorial. The raw `supermarket.yaml` file is available
 > [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/updated.yaml)
-
-# Start Up
-
-In order to initialize the generator tool run:
-
-```console
-./services create
-```
 
 ### Validating a Swagger Data Models
 
@@ -407,7 +431,7 @@ The NGSI-LD `@context` needs to hold defined URIs for the following:
 -   The names of all the metadata attribute from within the Data Models
 -   The enumerated values of any constants used within the Data Models.
 
-An NGSI-LD
+An NGSI-LD `@context` file can be generated from a Swagger data model as follows:
 
 ```console
 ./services ngsi [file]
@@ -525,8 +549,79 @@ The core context file defines the base structure of the NGSI-LD API payload (thi
 
 ### Generating a JSON-LD `@context` file
 
+The JSON-LD `@context` differs from the NGSI-LD `@context` file as it is standalone and does not use the core context
+definitions require definitions for additional metadata items such as _properties-of-properties_. It is used in
+combination with the simplified NSGI-LD key-values pairs payloads.
+
+The JSON-LD requires the following:
+
+-   The names of all the attributes from within the defined Data Models
+-   The enumerated values of any constants used within the Data Models.
+
+Additionally a JSON-LD `@context` may also include supplimentary information (such as _This attribute is an integer_)
+and, within the `@graph` definition, information about the relationships between nodes (_This attribute is a link to a
+**Person** entity_ ) as well as human readable information about the attributes themselves (_A barn is an agricultural
+building used for storage_) may be returned.
+
+An JSON-LD `@context` file can be generated from a Swagger data model as follows:
+
 ```console
 ./services jsonld [file]
+```
+
+#### Terminal - Result:
+
+```text
+datamodels.context.jsonld created
+```
+
+Opening the generated file, the following structure can be found:
+
+```jsonld
+{
+    "@context": {
+        "type": "@type",
+        "id": "@id",
+        "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
+        "fiware": "https://uri.fiware.org/ns/data-models#",
+        "schema": "https://schema.org/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+...  etc
+        "Building": "fiware:Building",
+        "FillingLevelSensor": "fiware:FillingLevelSensor",
+... etc
+        "actuator": "https://w3id.org/saref#actuator",
+        "additionalName": {
+            "@id": "schema:additionalName",
+            "@type": "xsd:string"
+        },
+        "address": "schema:address",
+        "airPollution": "https://w3id.org/saref#airPollution",
+        "atmosphericPressure": "https://w3id.org/saref#atmosphericPressure",
+        "barn": "https://wiki.openstreetmap.org/wiki/Tag:building%3Dbarn",
+... etc
+    },
+    "@graph": [
+...etc
+        {
+            "@id": "fiware:fillingLevel",
+            "@type": "ngsi-ld:Property",
+            "rdfs:comment": [
+                {
+                    "@language": "en",
+                    "@value": "Property related to some measurements that are characterized by a certain value that is a filling level."
+                }
+            ],
+            "rdfs:label": [
+                {
+                    "@language": "en",
+                    "@value": "fillingLevel"
+                }
+            ]
+        }
+    ]
+}
 ```
 
 ## License
