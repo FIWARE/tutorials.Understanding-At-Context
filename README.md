@@ -15,8 +15,7 @@ Unlike the previous [tutorials series](http://fiware-tutorials.rtfd.io/), this s
 approach and therefore starts with reiterating the fundamentals of Linked Data and its application to the **NGSI-LD**
 interface.
 
-The tutorial is mainly concerned with online and command-line tooling, although some commands will also use cUrl and are
-available as Postman documentation
+The tutorial is mainly concerned with online and command-line tooling.
 
 ## Contents
 
@@ -63,23 +62,26 @@ get in the way of the processing the data objects themselves.
 An attempt to solve this interoperablity problem has been made within the JSON domain, and this has been done by adding
 an `@context` element to existing JSON data structures. This has led to the creation of the **JSON-LD** standard.
 
-The main takeaway from **JSON-LD**, is that a remote context file and the **JSON-LD** `@context` definition can be used
-to assign unique long URNs for every defined attribute. Developers are then free to use their own regular short
-attribute names within their own applications, but though the application of Expansion and Compaction operations
+The main takeaway from **JSON-LD**, is that a remote context file and the **JSON-LD**
+[`@context` definition](https://w3c.github.io/json-ld-syntax/#the-context) can be used to assign unique long URNs for
+every defined attribute. Developers are then free to use their own regular short attribute names within their own
+applications, converting from URIs to preferred shortnames though the application of Expansion and Compaction
+operations.
 
-To promote interoperability, the **NGSI-LD** API is defined using the concepts of **JSON-LD** and therefore a thorough
-knowledge of **JSON-LD** `@context` is fundamental to the use **NGSI-LD**.
+**NGSI-LD** is a formally structured _extended subset_ of **JSON-LD**. To promote interoperability, the **NGSI-LD** API
+is defined using the **JSON-LD** specification and therefore a thorough knowledge of **JSON-LD** and in particular
+`@context` files is fundamental to the use **NGSI-LD**.
 
 ## What is JSON-LD?
 
-JSON-LD is an extension of JSON , it is a standard way of avoiding ambiguity when expressing linked data in JSON so that
-the data is structured in a format which is parsable by machines. It is a method of ensuring that all data attributes
-can be easily compared when coming from a multitude of separate data sources, which could have a different idea as to
-what each attribute means. For example, when two data entities have a `name` attribute how can the computer be certain
-that is refers to a _"Name of a thing"_ in the same sense (rather than a **Username** or a **Surname** or something).
-URLs and data models are used to remove ambiguity by allowing attributes to have a both short form (such as `name`) and
-a fully specified long form (such `http://schema.org/name`) which means it is easy to discover which attribute have a
-common meaning within a data structure.
+**JSON-LD** is an extension of JSON , it is a standard way of avoiding ambiguity when expressing linked data in JSON so
+that the data is structured in a format which is parsable by machines. It is a method of ensuring that all data
+attributes can be easily compared when coming from a multitude of separate data sources, which could have a different
+idea as to what each attribute means. For example, when two data entities have a `name` attribute how can the computer
+be certain that is refers to a _"Name of a thing"_ in the same sense (rather than a **Username** or a **Surname** or
+something). URLs and data models are used to remove ambiguity by allowing attributes to have a both short form (such as
+`name`) and a fully specified long form (such `http://schema.org/name`) which means it is easy to discover which
+attribute have a common meaning within a data structure.
 
 JSON-LD introduces the concept of the `@context` element which provides additional information allowing the computer to
 interpret the rest of the data with more clarity and depth.
@@ -329,7 +331,8 @@ components:
 The baseline Data Model can be inspected
 [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml).
 
-The source file for the Baseline Date Models, `baseline.yaml` can be found  [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml).
+The source file for the Baseline Date Models, `baseline.yaml` can be found
+[here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml).
 
 ### Updated Data models
 
@@ -390,7 +393,8 @@ FillingLevelSensor:
 The updated Data Models for an Agricultural Smart System can be inspected
 [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml).
 
-The raw source file `agriculture.yaml` can be found [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
+The raw source file `agriculture.yaml` can be found
+[here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 
 ## Autogenerating `@Context` Files from Swagger
 
@@ -398,10 +402,10 @@ Every working linked data system relies on `@context` files to supply the releva
 such files by hand is a tedious and error prone procedure, so it makes sense to automate the process. The required
 structure will depend on the operations involved.
 
-This tutorial will take the Agricultural Smart System data model file `agriculture.yaml` and autogenerate alternatives for
-use by other agents.
+This tutorial will take the Agricultural Smart System data model file `agriculture.yaml` and autogenerate alternatives
+for use by other agents.
 
-> A deeper understanding can be obtained byrun this tutorial with a more advanced example, the equivalent
+> A deeper understanding can be obtained by runnning this tutorial with a more advanced example, the equivalent
 > [Data Models](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 > from the [Supermarket Scenario](https://fiware.github.io/tutorials.Step-by-Step/schema/en/) have also been added to
 > this tutorial. The raw `supermarket.yaml` file is available
@@ -533,7 +537,7 @@ For example this is a `Building` in _normalized_ NGSI-LD format:
         "type": "GeoProperty",
         "value": {
              "type": "Point",
-             "coordinates": [13.35, 2.5144]
+             "coordinates": [13.35, 52.5144]
         }
     },
     "name": {
@@ -554,7 +558,7 @@ The core context file defines the base structure of the NGSI-LD API payload (thi
 ### Generating a JSON-LD `@context` file
 
 The JSON-LD `@context` differs from the NGSI-LD `@context` file as it is standalone and does not use the core context
-definitions require definitions for additional metadata items such as _properties-of-properties_. It is used in
+definitions and does not specify metadata attribute definitions such as _properties-of-properties_. It is used in
 combination with the simplified NSGI-LD key-values pairs payloads.
 
 The JSON-LD requires the following:
@@ -605,6 +609,10 @@ Opening the generated file, the following structure can be found:
         "airPollution": "https://w3id.org/saref#airPollution",
         "atmosphericPressure": "https://w3id.org/saref#atmosphericPressure",
         "barn": "https://wiki.openstreetmap.org/wiki/Tag:building%3Dbarn",
+        "controlledAsset": {
+            "@id": "fiware:controlledAsset",
+            "@type": "@id"
+        },
 ... etc
     },
     "@graph": [
@@ -629,9 +637,80 @@ Opening the generated file, the following structure can be found:
 }
 ```
 
+Once again the resultant `@context` file is a valid [JSON-LD](https://w3c.github.io/json-ld-syntax/), this time however
+it has been designed to be used by any application that understands generic JSON-LD applications. The file is structured
+as follows:
 
+-   A list of standard terms and abbreviations - this avoids the necessity of repeating URIs and reduced the overall
+    size of the file. For further information read the section on
+    [aliasing keywords](https://w3c.github.io/json-ld-syntax/#aliasing-keywords) from the JSON-LD specification.
+-   A series of defined entity types (e.g. `Building`). These usually start with a capital letter.
+-   A list of attributes - these may be sub-divided as follows: - attributes representing context data **Properties** to
+    be displayed as native JSON attributes (e.g. `additionalName`), these attributes are annotated to explain the
+    [XML Schema](https://www.w3.org/TR/xmlschema-2/) datatype to be used when consuming the data. - attributes
+    representing context data **Properties** which are complex of objects (e.g. `address`), these are remain as in the
+    previous example, there is an indication that `address` really refers to a `https://schema.org/address` - which in
+    turn has well defined subattrributes - and the native types of those sub-elements are also defined. - attributes
+    representing context data **Properties** which hold enumerations - e.g. `category` - these hold a link indicator in
+    the form of `"@type": "@vocab"`. When these attributes are encountered it indicates that the value `category="barn"`
+    can be expanded to the IRI `https://wiki.openstreetmap.org/wiki/Tag:building%3Dbarn` rather than just as a string
+    holding the short name `barn`. For further information on how this is achieved, look at the
+    [shortening IRIs](https://w3c.github.io/json-ld-syntax/#shortening-iris) in the JSON-LD specification. - attributes
+    representing context data **Relationships** - e.g. `controlledAsset` - these hold an indicator of a link between
+    entities in the form of `"@type": "@id"`. This is the syntax indicating a link, or more formally an
+    Internationalized Resource Identifier (see [RFC3987](https://w3c.github.io/json-ld-syntax/#bib-rfc3987)). For
+    further information see the [section on IRIs](https://w3c.github.io/json-ld-syntax/#iris) within the JSON-LD
+    sepcification
+-   A list of enumerations (e.g. `barn`) - these can be readily expanded by the receiving application when held within
+    defined `@vocab` elements.
+
+Furthermore an additional section in this context file called the `@graph`. This enables the JSON-LD @context to make
+additonal statements about the graph of linked data itself For example, the generated `@graph` elements are show a human
+readable description of the attribute in English. This could be further expanded to indicate in which entities each
+attribute is used, whether a entity defintion is a subclass of a base defintion (e.g. `TemperatureSensor` extends
+`Device`) and so on.
+
+Further information about `@graph` can be found in the section on
+[Named Graphs](https://w3c.github.io/json-ld-syntax/#named-graphs)).
+
+If NGSI-LD requests are made using the `options=keyValues` parameter, the response a generic JSON-LD object (as shown
+below) rather than a full NGSI-LD object:
+
+```jsonld
+{
+    "id": "urn:ngsi-ld:Building:001",
+    "type": "Building",
+    "category": "barn",
+    "address": {
+        "streetAddress": "Großer Stern",
+        "addressRegion": "Berlin",
+        "addressLocality": "Tiergarten",
+        "postalCode": "10557"
+    },
+    "location": {
+        "type": "Point",
+        "coordinates": [13.35, 52.5144]
+    },
+    "name": "Siegessäule Barn",
+    "@context": "https://example.com/data-models.context.jsonld"
+}
+```
+
+This format should be familiar to any user of JSON - the additional `@context` attribute is the mechanism used to
+annotate the base JSON payload as JSON-LD linked data.
+
+It should be noted that this JSON-LD payload does not include metadata about attributes - there are no _properties of
+properties_ or _relationships of properties_. Therefore to include a traversable link within JSON-LD it is necessary to
+declare it as **Relationship** directly on the entity itself- an example can be found in the `controlledAsset` attribute
+of `Device`. Metadata atttibutes such as the `providedBy` **Relationship** found within the `temperature` **Property**
+are only traversable using the NGSI-LD syntax.
 
 ### Generating Documentation
+
+The `@context` syntax is designed to be readable by machines. Obviously developers need human readable documentation
+too.
+
+Basic documentation about NGSI-LD entities can be generated from a Swagger data model as follows:
 
 ```console
 ./services markdown [file]
@@ -644,7 +723,7 @@ Creating Documentation for the Data Models
 datamodels.md created
 ```
 
-A markdown file holding the documentation for the data models is returned
+The result is a markdown file holding the documentation for the data models is returned.
 
 ## License
 
