@@ -22,12 +22,12 @@ The tutorial is mainly concerned with online and command-line tooling.
 <details>
 <summary><strong>Details</strong></summary>
 
--   [What is JSON-LD?](#what-is-json-ld)
-
-    -   [:arrow_forward: Video: What is Linked Data?](#arrow_forward-video-what-is-linked-data)
-    -   [:arrow_forward: Video: What is JSON-LD?](#arrow_forward-video-what-is-json-ld)
-
+-   [Understanding `@context`](#understanding-context)
+    -   [What is JSON-LD?](#what-is-json-ld)
+        -   [:arrow_forward: Video: What is Linked Data?](#arrow_forward-video-what-is-linked-data)
+        -   [:arrow_forward: Video: What is JSON-LD?](#arrow_forward-video-what-is-json-ld)
 -   [Prerequisites](#prerequisites)
+    -   [Swagger](#swagger)
     -   [Docker](#docker)
     -   [Cygwin](#cygwin)
 -   [Start Up](#start-up)
