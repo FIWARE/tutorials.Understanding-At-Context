@@ -17,6 +17,8 @@ interface.
 
 The tutorial is mainly concerned with online and command-line tooling.
 
+-   このチュートリアルは[日本語](README.ja.md)でもご覧いただけます。
+
 ## Contents
 
 <details>
