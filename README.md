@@ -262,16 +262,22 @@ mean we will need things such as:
 
 ```json
 {
-    "temperature" : 30,
-    "unitCode" : "CEL",
-    "providedBy": "urn:ngsi-ld:TemperatureSensor:001",
-    "observedAt" :"2016-03-15T11:00:00.000"
+    "temperature" : { 
+        "type": "Property",
+        "value": 30,
+        "unitCode" : "CEL",
+        "providedBy": "urn:ngsi-ld:TemperatureSensor:001",
+        "observedAt" :"2016-03-15T11:00:00.000"
+    }
 },
 {
-    "fillingLevel" : 0.5,
-    "unitCode" : "CEL",
-    "providedBy": "urn:ngsi-ld:FillingSensor:001",
-    "observedAt" :"2016-03-15T11:00:00.000"
+    "fillingLevel" : : { 
+        "type": "Property",
+        "value": 0.5,
+        "unitCode" : "P1",
+        "providedBy": "urn:ngsi-ld:FillingSensor:001",
+        "observedAt" :"2016-03-15T11:00:00.000"
+    }
 }
 ```
 
