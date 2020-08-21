@@ -54,7 +54,11 @@
 
 # `@context` の理解
 
-コンピュータの読み取り可能なリンクの相互運用可能なシステムを作成するには、明確に定義されたデータ形式 
+> “Wisdom is intelligence in context.”
+>
+> ― Raheel Farooq, Kalam
+
+コンピュータの読み取り可能なリンクの相互運用可能なシステムを作成するには、明確に定義されたデータ形式
 ([JSON-LD](http://json-ld.org/)) を使用し、データ・エンティティとエンティティ間のリレーションシップの両方に一意の
 IDs ([URLs または URNs](https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn))
 を割り当てて、データ自体からプログラムで意味を取得できるようにする必要があります。さらに、これらの一意の IDs の使用と
@@ -284,7 +288,7 @@ _Property_ 属性が、実世界で具体的な何かのデジタル・ツイン
 
 ```json
 {
-    "temperature": { 
+    "temperature": {
         "type": "Property",
         "value": 30,
         "unitCode" : "CEL",
@@ -293,7 +297,7 @@ _Property_ 属性が、実世界で具体的な何かのデジタル・ツイン
     }
 },
 {
-    "fillingLevel": { 
+    "fillingLevel": {
         "type": "Property",
         "value": 0.5,
         "unitCode": "P1",
