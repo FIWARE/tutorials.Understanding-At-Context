@@ -784,4 +784,4 @@ datamodels.md created
 
 ## License
 
-[MIT](LICENSE) © 2019-2020 FIWARE Foundation e.V.
+[MIT](LICENSE) © 2020 FIWARE Foundation e.V.

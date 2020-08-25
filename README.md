@@ -175,7 +175,7 @@ This example can be split down into the following Entities:
 -   **IoT Devices**:
     -   Temperature Senor
     -   Filling Level Sensor
-    
+
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/entities.png)
 
 ## Baseline Data Models
@@ -741,6 +741,11 @@ datamodels.md created
 
 The result is a Markdown file holding the documentation for the data models is returned.
 
+# Next Steps
+
+Want to learn how to add more complexity to your application by adding advanced features? You can find out by reading
+the other [tutorials in this series](https://ngsi-ld-tutorials.rtfd.io)
+
 ## License
 
-[MIT](LICENSE) © 2019-2020 FIWARE Foundation e.V.
+[MIT](LICENSE) © 2020 FIWARE Foundation e.V.
