@@ -192,6 +192,8 @@ Swagger 仕様ですが、実際には
     -   温度センサ (Temperature Senor)
     -   充填レベル・センサ (Filling Level Sensor)
 
+![](https://fiware.github.io/tutorials.Understanding-At-Context/img/entities.png)
+
 <a name="baseline-data-models"/>
 
 ## ベースライン・データモデル
