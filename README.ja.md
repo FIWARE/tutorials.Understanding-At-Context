@@ -192,6 +192,8 @@ Swagger 仕様ですが、実際には
     -   温度センサ (Temperature Senor)
     -   充填レベル・センサ (Filling Level Sensor)
 
+![](https://fiware.github.io/tutorials.Understanding-At-Context/img/entities.png)
+
 <a name="baseline-data-models"/>
 
 ## ベースライン・データモデル
@@ -781,6 +783,11 @@ datamodels.md created
 ```
 
 結果は、データモデルのドキュメントを保持する Markdown ファイルです。
+
+# 次のステップ
+
+高度な機能を追加することで、アプリケーションに複雑さを加える方法を知りたいですか？ このシリーズの
+[他のチュートリアル](https://www.letsfiware.jp/ngsi-ld-tutorials)を読むことで見つけることができます
 
 ## License
 
