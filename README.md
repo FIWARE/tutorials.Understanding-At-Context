@@ -347,7 +347,7 @@ components:
 The baseline Data Model can be inspected
 [here](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml).
 
-The source file for the Baseline Date Models, `baseline.yaml` can be found
+The source file for the Baseline Data Models, `baseline.yaml` can be found
 [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml).
 
 ### Updated Data models
