@@ -377,7 +377,7 @@ components:
 [こちら](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml)
 にあります。
 
-ベースライン日付モデルのソースファイルである `baseline.yaml` は
+ベースライン・データモデルのソースファイルである `baseline.yaml` は
 [こちら](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/baseline.yaml)にあります。
 
 <a name="updated-data-models"/>
