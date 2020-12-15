@@ -150,8 +150,8 @@ the digital twin of an object which exists in the real world.
 
 Although the each data entity within your context will vary according to your use case, the common structure within each
 data entity should be standardized order to promote reuse. The Fundamentals for FIWARE Data Model design do not change.
-Typically each entity will consist of an `id`, a `type`, a series of **Property** attributes representing context
-data which changes over time and a series of **Relationship** attributes which represent connections between existing
+Typically each entity will consist of an `id`, a `type`, a series of **Property** attributes representing context data
+which changes over time and a series of **Relationship** attributes which represent connections between existing
 entities.
 
 It is perhaps best to illustrate this using an example. The Underlying Data Models can be created using many different
@@ -181,10 +181,12 @@ This example can be split down into the following Entities:
 ## Baseline Data Models
 
 <!-- textlint-disable write-good -->
+
 When architecting your Smart System, it is unnecessary to start from scratch, so the first step is to check to see if
 there are any existing NGSI-LD data models which are capable of describing your system. As it happens, there are
 existing [Smart Data Models](https://www.fiware.org/developers/smart-data-models/) for both **Building** and **Device**,
 so it is possible to check if these will fulfill our needs:
+
 <!-- textlint-enable write-good -->
 
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/swagger.png)
@@ -267,11 +269,11 @@ mean we will need things such as:
 -   and so on.
 
 ```json
-{
+({
     "temperature": {
         "type": "Property",
         "value": 30,
-        "unitCode" : "CEL",
+        "unitCode": "CEL",
         "providedBy": "urn:ngsi-ld:TemperatureSensor:001",
         "observedAt": "2016-03-15T11:00:00.000"
     }
@@ -282,9 +284,9 @@ mean we will need things such as:
         "value": 0.5,
         "unitCode": "P1",
         "providedBy": "urn:ngsi-ld:FillingSensor:001",
-        "observedAt" :"2016-03-15T11:00:00.000"
+        "observedAt": "2016-03-15T11:00:00.000"
     }
-}
+})
 ```
 
 Each one of these attributes has a name, and therefore requires a definition within the `@context`. Fortunately most of
@@ -353,7 +355,7 @@ The source file for the Baseline Data Models, `baseline.yaml` can be found
 ### Updated Data models
 
 1.  **Building** must be updated to accommodate `temperature` and `fillingLevel`. Both of these properties have been
-   defined within SAREF terms.
+    defined within SAREF terms.
 
 ```yaml
 Building:
@@ -398,9 +400,9 @@ FillingLevelSensor:
 ```
 
 4.  The list of controlled attributes can be reduced to those measured by Agricultural devices (e.g `airPollution`,
-   `atmosphericPressure`, `depth`, `eatingActivity`, `fillingLevel`, `humidity`, `location`, `milking`, `motion`,
-   `movementActivity`, `occupancy`, `precipitation`, `pressure`, `soilMoisture`, `solarRadiation`, `temperature`,
-   `waterConsumption`, `weatherConditions`, `weight`, `windDirection`, `windSpeed`)
+    `atmosphericPressure`, `depth`, `eatingActivity`, `fillingLevel`, `humidity`, `location`, `milking`, `motion`,
+    `movementActivity`, `occupancy`, `precipitation`, `pressure`, `soilMoisture`, `solarRadiation`, `temperature`,
+    `waterConsumption`, `weatherConditions`, `weight`, `windDirection`, `windSpeed`)
 
 5.  The other definitions remain unchanged.
 
@@ -681,9 +683,9 @@ as follows:
     defined `@vocab` elements.
 
 Furthermore an additional section in this context file called the `@graph`. This enables the JSON-LD @context to make
-additional statements about the graph of linked data itself For example, the generated `@graph` elements are show a human
-readable description of the attribute in English. This could be further expanded to indicate in which entities each
-attribute is used, whether a entity definition is a subclass of a base definition (e.g. `TemperatureSensor` extends
+additional statements about the graph of linked data itself For example, the generated `@graph` elements are show a
+human readable description of the attribute in English. This could be further expanded to indicate in which entities
+each attribute is used, whether a entity definition is a subclass of a base definition (e.g. `TemperatureSensor` extends
 `Device`) and so on.
 
 Further information about `@graph` can be found in the section on
