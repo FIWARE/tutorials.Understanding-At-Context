@@ -53,6 +53,9 @@ case "${command}" in
 	"start")
 		./services ngsi
 		;;
+	"stop")
+		echo "no services running."
+		;;
 	*)
 		echo "Command not Found."
 		echo "usage: services [create|markdown|ngsi|jsonld|validate]"
