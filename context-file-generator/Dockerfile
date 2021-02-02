@@ -1,4 +1,4 @@
-ARG  NODE_VERSION=10.17.0-slim
+ARG  NODE_VERSION=14-slim
 FROM node:${NODE_VERSION}
 
 COPY . /usr/src/app

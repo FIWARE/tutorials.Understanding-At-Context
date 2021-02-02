@@ -50,6 +50,9 @@ case "${command}" in
 	"validate")
 		docker run --rm -v $(pwd)/:/files contextgen validate -i "/files/${file}"
 		;;
+	"start")
+		./services ngsi
+		;;
 	*)
 		echo "Command not Found."
 		echo "usage: services [create|markdown|ngsi|jsonld|validate]"
