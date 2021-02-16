@@ -29,7 +29,9 @@ case "${command}" in
 	"help")
         echo "usage: services [create|markdown|ngsi|jsonld|validate]"
         ;;
-    "create")
+	"create")
+		export $(cat .env | grep "#" -v)
+		export $(cat .env | grep "#" -v)
 		 docker build -t contextgen ./context-file-generator   
 		;;
 	"markdown")
@@ -51,9 +53,11 @@ case "${command}" in
 		docker run --rm -v $(pwd)/:/files contextgen validate -i "/files/${file}"
 		;;
 	"start")
+		export $(cat .env | grep "#" -v)
 		./services ngsi
 		;;
 	"stop")
+		export $(cat .env | grep "#" -v)
 		echo "no services running."
 		;;
 	*)
