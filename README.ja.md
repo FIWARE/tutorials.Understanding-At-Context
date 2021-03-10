@@ -303,7 +303,7 @@ _Property_ 属性が、実世界で具体的な何かのデジタル・ツイン
         "type": "Property",
         "value": 0.5,
         "unitCode": "P1",
-        "providedBy": "urn:ngsi-ld:FillingSensor:001",
+        "providedBy": "urn:ngsi-ld:FillingLevelSensor:001",
         "observedAt" :"2016-03-15T11:00:00.000"
     }
 }
