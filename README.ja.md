@@ -462,7 +462,7 @@ FillingLevelSensor:
 [スーパーマーケットのシナリオ](https://fiware.github.io/tutorials.Step-by-Step/schema/en/)と同等の
 [データモデル](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 も追加されています。未加工の `supermarket.yaml` ファイルは、
-[こちら](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
+[こちら](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/supermarket.yaml)
 で利用可能です。
 
 <a name="validating-a-swagger-data-models"/>

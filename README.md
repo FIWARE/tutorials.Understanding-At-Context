@@ -426,7 +426,7 @@ for use by other agents.
 > [Data Models](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
 > from the [Supermarket Scenario](https://fiware.github.io/tutorials.Step-by-Step/schema/en/) have also been added to
 > this tutorial. The raw `supermarket.yaml` file is available
-> [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
+> [here](https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/supermarket.yaml)
 
 ### Validating a Swagger Data Models
 
