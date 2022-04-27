@@ -1,5 +1,4 @@
-[![FIWARE Banner](https://fiware.github.io/tutorials.Understanding-At-Context/img/fiware.png)](https://www.fiware.org/developers)
-[![NGSI LD](https://img.shields.io/badge/NGSI-LD-d6604d.svg)](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.04.01_60/gs_cim009v010401p.pdf)
+# Understanding `@context` [<img src="https://img.shields.io/badge/NGSI-LD-d6604d.svg" width="90"  align="left" />]("https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.03.01_60/gs_cim009v010301p.pdf)[<img src="https://fiware.github.io/tutorials.Understanding-At-Context/img/fiware.png" align="left" width="162">](https://www.fiware.org/)<br/>
 
 [![FIWARE Core Context Management](https://nexus.lab.fiware.org/repository/raw/public/badges/chapters/core.svg)](https://github.com/FIWARE/catalogue/blob/master/core/README.md)
 [![License: MIT](https://img.shields.io/github/license/fiware/tutorials.Understanding-At-Context.svg)](https://opensource.org/licenses/MIT)
@@ -199,10 +198,12 @@ Swagger 仕様ですが、実際には
 ## ベースライン・データモデル
 
 <!-- textlint-disable write-good -->
+
 スマート・システムを構築する場合、ゼロから開始する必要はありません。最初のステップは、システムを記述できる既存の
 NGSI-LD データモデルがあるかどうかを確認することです。たまたま、**Building** と **Device** の両方が既存の
 [スマート・データモデル](https://www.fiware.org/developers/smart-data-models/) にあるので、
 これらが私たちのニーズを満たすかどうかを確認するが可能です:
+
 <!-- textlint-enable write-good -->
 
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/swagger.png)
@@ -289,11 +290,11 @@ _Property_ 属性が、実世界で具体的な何かのデジタル・ツイン
 
 
 ```json
-{
+({
     "temperature": {
         "type": "Property",
         "value": 30,
-        "unitCode" : "CEL",
+        "unitCode": "CEL",
         "providedBy": "urn:ngsi-ld:TemperatureSensor:001",
         "observedAt": "2016-03-15T11:00:00.000"
     }
@@ -304,9 +305,9 @@ _Property_ 属性が、実世界で具体的な何かのデジタル・ツイン
         "value": 0.5,
         "unitCode": "P1",
         "providedBy": "urn:ngsi-ld:FillingLevelSensor:001",
-        "observedAt" :"2016-03-15T11:00:00.000"
+        "observedAt": "2016-03-15T11:00:00.000"
     }
-}
+})
 ```
 
 これらの属性にはそれぞれ名前が付いているため、 `@context` 内での定義が必要です。幸いなことに、これらのほとんどはコア
@@ -440,7 +441,7 @@ FillingLevelSensor:
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/updated.png)
 
 アグリカルチャ用スマート・システムの更新されたデータモデルは、
-[こちら](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
+[こちら](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/supermarket.yaml)
 で検査できます。
 
 未加工のソースファイル `agriculture.yaml` は、
