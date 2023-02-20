@@ -149,6 +149,12 @@ API 仕様は YAML または JSON で記述できます。この形式は、学�
 
 # 起動
 
+```console
+git clone https://github.com/FIWARE/tutorials.Understanding-At-Context.git
+cd tutorials.Understanding-At-Context
+git checkout NGSI-LD
+```
+
 ジェネレータ・ツールの実行を初期化するには以下を実行します:
 
 ```console

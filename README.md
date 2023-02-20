@@ -136,6 +136,14 @@ to provide a command-line functionality similar to a Linux distribution on Windo
 
 # Start Up
 
+Please clone the repository and create the necessary images by running the commands as shown:
+
+```console
+git clone https://github.com/FIWARE/tutorials.Understanding-At-Context.git
+cd tutorials.Understanding-At-Context
+git checkout NGSI-LD
+```
+
 In order to initialize the generator tool run:
 
 ```console
