@@ -1,4 +1,4 @@
-# Understanding `@context` [<img src="https://img.shields.io/badge/NGSI-LD-d6604d.svg" width="90"  align="left" />]("https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.03.01_60/gs_cim009v010301p.pdf)[<img src="https://fiware.github.io/tutorials.Understanding-At-Context/img/fiware.png" align="left" width="162">](https://www.fiware.org/)<br/>
+# Understanding `@context` [<img src="https://img.shields.io/badge/NGSI-LD-d6604d.svg" width="90"  align="left" />](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.06.01_60/gs_CIM009v010601p.pdf)[<img src="https://fiware.github.io/tutorials.Understanding-At-Context/img/fiware.png" align="left" width="162">](https://www.fiware.org/)<br/>
 
 [![FIWARE Core Context Management](https://nexus.lab.fiware.org/repository/raw/public/badges/chapters/core.svg)](https://github.com/FIWARE/catalogue/blob/master/core/README.md)
 [![License: MIT](https://img.shields.io/github/license/fiware/tutorials.Understanding-At-Context.svg)](https://opensource.org/licenses/MIT)
@@ -68,7 +68,7 @@ An attempt to solve this interoperability problem has been made within the JSON 
 an `@context` element to existing JSON data structures. This has led to the creation of the **JSON-LD** standard.
 
 The main takeaway from **JSON-LD**, is that a remote context file and the **JSON-LD**
-[`@context` definition](https://w3c.github.io/json-ld-syntax/#the-context) can be used to assign unique long URNs for
+[`@context` definition](https://w3c.github.io/json-ld-syntax/#the-context) can be used to assign unique long URIs for
 every defined attribute. Developers are then free to use their own regular short attribute names within their own
 applications, converting from URIs to preferred shortnames though the application of Expansion and Compaction
 operations.
@@ -84,7 +84,7 @@ that the data is structured in a format which is parsable by machines. It is a m
 attributes can be easily compared when coming from a multitude of separate data sources, which could have a different
 idea as to what each attribute means. For example, when two data entities have a `name` attribute how can the computer
 be certain that is refers to a _"Name of a thing"_ in the same sense (rather than a **Username** or a **Surname** or
-something). URLs and data models are used to remove ambiguity by allowing attributes to have a both short form (such as
+something). URIs and data models are used to remove ambiguity by allowing attributes to have a both short form (such as
 `name`) and a fully specified long form (such `http://schema.org/name`) which means it is easy to discover which
 attribute have a common meaning within a data structure.
 
@@ -135,6 +135,14 @@ We will start up our services using a simple bash script. Windows users should d
 to provide a command-line functionality similar to a Linux distribution on Windows.
 
 # Start Up
+
+Please clone the repository and create the necessary images by running the commands as shown:
+
+```console
+git clone https://github.com/FIWARE/tutorials.Understanding-At-Context.git
+cd tutorials.Understanding-At-Context
+git checkout NGSI-LD
+```
 
 In order to initialize the generator tool run:
 
@@ -206,6 +214,18 @@ model.
 It should be noted that definitions of the models examined so far are very general and will need further modifications
 to be of use in a working system, however using these models as the basis of interoperability will ensure that the
 resulting `@context` file will be understandable to the widest number of systems.
+
+> **Note:** The Data Models used here for `@context` generation are defined using OpenAPI 3.0
+> [Swagger format](https://swagger.io/specification). To help with the generation of IRIs the specification has been
+> extended with additional annotations as necessary. The `x-ngsi` attribute, as the name suggests is just a simple
+> [Specification Extension](https://swagger.io/specification/#specificationExtensions) - usually it is not relevant to
+> Swagger, and indeed you could generate a simple `@context` file without it, but the data held within in has been used
+> to help generate a rich [`@graph`](https://w3c.github.io/json-ld-syntax/#dfn-graph-object) and more comprehensive
+> documentation.
+>
+> The simple NGSI-LD `@context` generator in the tutorial defaults to using `uri.fiware.org` namespaces and updates with
+> corrected URIs based on the `x-ngsi.uri` and `x-ngsi.uri-prefix` attributes. The code and defaults found within this
+> tutorial can be altered if necessary.
 
 ## Amending Models
 
@@ -763,4 +783,4 @@ the other [tutorials in this series](https://ngsi-ld-tutorials.rtfd.io)
 
 ## License
 
-[MIT](LICENSE) © 2020 FIWARE Foundation e.V.
+[MIT](LICENSE) © 2020-2023 FIWARE Foundation e.V.

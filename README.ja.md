@@ -1,5 +1,4 @@
-[![FIWARE Banner](https://fiware.github.io/tutorials.Understanding-At-Context/img/fiware.png)](https://www.fiware.org/developers)
-[![NGSI LD](https://img.shields.io/badge/NGSI-LD-d6604d.svg)](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.03.01_60/gs_cim009v010301p.pdf)
+# Understanding `@context` [<img src="https://img.shields.io/badge/NGSI-LD-d6604d.svg" width="90"  align="left" />]("https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.03.01_60/gs_cim009v010301p.pdf)[<img src="https://fiware.github.io/tutorials.Understanding-At-Context/img/fiware.png" align="left" width="162">](https://www.fiware.org/)<br/>
 
 [![FIWARE Core Context Management](https://nexus.lab.fiware.org/repository/raw/public/badges/chapters/core.svg)](https://github.com/FIWARE/catalogue/blob/master/core/README.md)
 [![License: MIT](https://img.shields.io/github/license/fiware/tutorials.Understanding-At-Context.svg)](https://opensource.org/licenses/MIT)
@@ -69,7 +68,7 @@ IDs ([URLs または URNs](https://stackoverflow.com/questions/4913343/what-is-t
 
 **JSON-LD** の主なポイントは、リモート・コンテキスト・ファイルと **JSON-LD**
 [`@context` 定義](https://w3c.github.io/json-ld-syntax/#the-context) を使用して、定義されたすべての属性に一意の長い
-URNs を割り当てることができます。開発者は独自のアプリケーション内で独自の通常の短い属性名を自由に使用でき、拡張操作と
+URIs を割り当てることができます。開発者は独自のアプリケーション内で独自の通常の短い属性名を自由に使用でき、拡張操作と
 圧縮操作を適用して、URIs から優先短縮名 (preferred shortnames) に変換します。
 
 **NGSI-LD** は、**JSON-LD** の正式に構造化された拡張サブセットです。相互運用性を促進するために、**NGSI-LD**  API は
@@ -84,7 +83,7 @@ URNs を割り当てることができます。開発者は独自のアプリケ
 形式で構造化する標準的な方法です。これは、複数の個別のデータ・ソースから取得したときにすべてのデータ属性を簡単に
 比較できるようにする方法であり、各属性の意味が異なる場合があります。たとえば、2つのデータ・エンティティに `name` 属性が
 ある場合、同じ意味で "モノの名前" を参照しているコンピュータを特定するにはどうすればよいですか (**Username** または
-**Surname**, 何かではなく)。URLs とデータモデルを使用して、属性に短い形式 (`name` など) と完全に指定された長い形式
+**Surname**, 何かではなく)。URIs とデータモデルを使用して、属性に短い形式 (`name` など) と完全に指定された長い形式
 (`http://schema.org/name` など) の両方を持たせることで曖昧さをなくします。つまり、データ構造内で共通の意味を持つ属性を
 簡単に見つけることができます。
 
@@ -150,6 +149,12 @@ API 仕様は YAML または JSON で記述できます。この形式は、学�
 
 # 起動
 
+```console
+git clone https://github.com/FIWARE/tutorials.Understanding-At-Context.git
+cd tutorials.Understanding-At-Context
+git checkout NGSI-LD
+```
+
 ジェネレータ・ツールの実行を初期化するには以下を実行します:
 
 ```console
@@ -199,10 +204,12 @@ Swagger 仕様ですが、実際には
 ## ベースライン・データモデル
 
 <!-- textlint-disable write-good -->
+
 スマート・システムを構築する場合、ゼロから開始する必要はありません。最初のステップは、システムを記述できる既存の
 NGSI-LD データモデルがあるかどうかを確認することです。たまたま、**Building** と **Device** の両方が既存の
 [スマート・データモデル](https://www.fiware.org/developers/smart-data-models/) にあるので、
 これらが私たちのニーズを満たすかどうかを確認するが可能です:
+
 <!-- textlint-enable write-good -->
 
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/swagger.png)
@@ -289,11 +296,11 @@ _Property_ 属性が、実世界で具体的な何かのデジタル・ツイン
 
 
 ```json
-{
+({
     "temperature": {
         "type": "Property",
         "value": 30,
-        "unitCode" : "CEL",
+        "unitCode": "CEL",
         "providedBy": "urn:ngsi-ld:TemperatureSensor:001",
         "observedAt": "2016-03-15T11:00:00.000"
     }
@@ -304,9 +311,9 @@ _Property_ 属性が、実世界で具体的な何かのデジタル・ツイン
         "value": 0.5,
         "unitCode": "P1",
         "providedBy": "urn:ngsi-ld:FillingLevelSensor:001",
-        "observedAt" :"2016-03-15T11:00:00.000"
+        "observedAt": "2016-03-15T11:00:00.000"
     }
-}
+})
 ```
 
 これらの属性にはそれぞれ名前が付いているため、 `@context` 内での定義が必要です。幸いなことに、これらのほとんどはコア
@@ -440,7 +447,7 @@ FillingLevelSensor:
 ![](https://fiware.github.io/tutorials.Understanding-At-Context/img/updated.png)
 
 アグリカルチャ用スマート・システムの更新されたデータモデルは、
-[こちら](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/agriculture.yaml)
+[こちら](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/FIWARE/tutorials.Understanding-At-Context/master/supermarket.yaml)
 で検査できます。
 
 未加工のソースファイル `agriculture.yaml` は、
@@ -791,4 +798,4 @@ datamodels.md created
 
 ## License
 
-[MIT](LICENSE) © 2020 FIWARE Foundation e.V.
+[MIT](LICENSE) © 2020-2023 FIWARE Foundation e.V.
