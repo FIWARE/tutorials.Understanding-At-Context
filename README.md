@@ -596,7 +596,7 @@ The core context file defines the base structure of the NGSI-LD API payload (thi
 > 
 > Not all `@context` entries in JSON-LD resolve to web-pages, and they don't have to, because primarily they are for machine 
 > readability not human readability. Some values do expand to a web-page for example -  [schema.org:address](https://schema.org/address)
-> but others like [geojson:{oint]https://purl.org/geojson/vocab#Point doesn't for example. For JSON-LD (and therefore NGSI-LD)
+> but others like [geojson:Point](https://purl.org/geojson/vocab#Point) doesn't for example. For JSON-LD (and therefore NGSI-LD)
 >  as far as the `@context` is concerned both of these are URIs and both are valid. One is just saying that 
 >  _"this `schema.org:address` really is an address with sub-attributes like `addressLocality` and `postalCode` which have a 
 >  well-defined semantic meaning"_, the other is saying _"this really is a well defined lump of GeoJSON which is defining a position
