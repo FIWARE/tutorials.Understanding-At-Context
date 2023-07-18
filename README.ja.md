@@ -558,7 +558,7 @@ Creating a NGSI-LD @context file for normalized interactions datamodels.context-
 -   属性 (例: `address`) と 列挙値 (例: `barn`) のリスト
 
 事実上、この NGSI-LD `@context` は、NGSI-LD コア・コンテキスト
-[https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld)
+[https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld)
 のコピー と組み合わせて、以下を機械的に定義します:
 
 コンピュータが `type=Building` のエンティティに遭遇した場合、これは実際には
@@ -608,7 +608,7 @@ NGSI-LD の `@context` はすべての NGSI-LD CRUD 操作に使用され、デ�
     },
     "@context": [
         "https://example.com/data-models.context-ngsild.jsonld",
-        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld"
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
 ```
