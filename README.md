@@ -593,18 +593,18 @@ The core context file defines the base structure of the NGSI-LD API payload (thi
 `attributes` without defining a payload structure.
 
 > **Note:** The values on the right hand side of each definition are URIs not URLs.
-> 
-> Not all `@context` entries in JSON-LD resolve to web-pages, and they don't have to, because primarily they are for machine 
-> readability not human readability. Some values do expand to a web-page for example -  [schema.org:address](https://schema.org/address)
-> but others like [geojson:Point](https://purl.org/geojson/vocab#Point) doesn't for example. For JSON-LD (and therefore NGSI-LD)
->  as far as the `@context` is concerned both of these are URIs and both are valid. One is just saying that 
->  _"this `schema.org:address` really is an address with sub-attributes like `addressLocality` and `postalCode` which have a 
->  well-defined semantic meaning"_, the other is saying _"this really is a well defined lump of GeoJSON which is defining a position
->  on Earth using a specific coordinate system."_
 >
->  For this example, the tutorial's `@conte`xt generator does help tp generate a valid `@context`, but in reality you
->  should always use the URIs and ontologies which are relevant for your use case (and share the definitions and `@context`
->  across the organizations joining your data space of course)
+> Not all `@context` entries in JSON-LD resolve to web-pages, and they don't have to, because primarily they are for
+> machine readability not human readability. Some values do expand to a web-page for example -
+> [schema.org:address](https://schema.org/address) but others like [geojson:Point](https://purl.org/geojson/vocab#Point)
+> doesn't for example. For JSON-LD (and therefore NGSI-LD) as far as the `@context` is concerned both of these are URIs
+> and both are valid. One is just saying that _"this `schema.org:address` really is an address with sub-attributes like
+> `addressLocality` and `postalCode` which have a well-defined semantic meaning"_, the other is saying _"this really is
+> a well defined lump of GeoJSON which is defining a position on Earth using a specific coordinate system."_
+>
+> For this example, the tutorial's `@conte`xt generator does help tp generate a valid `@context`, but in reality you
+> should always use the URIs and ontologies which are relevant for your use case (and share the definitions and
+> `@context` across the organizations joining your data space of course)
 
 ### Generating a JSON-LD `@context` file
 
