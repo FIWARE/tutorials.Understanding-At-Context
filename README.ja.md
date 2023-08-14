@@ -523,7 +523,7 @@ Creating a NGSI-LD @context file for normalized interactions datamodels.context-
         "type": "@type",
         "id": "@id",
         "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
-        "fiware": "https://uri.fiware.org/ns/data-models#",
+        "fiware": "https://uri.fiware.org/ns/dataModels#",
         "schema": "https://schema.org/",
  ...etc
         "Building": "fiware:Building",
@@ -562,7 +562,7 @@ Creating a NGSI-LD @context file for normalized interactions datamodels.context-
 のコピー と組み合わせて、以下を機械的に定義します:
 
 コンピュータが `type=Building` のエンティティに遭遇した場合、これは実際には
-`https://uri.fiware.org/ns/data-models#Building` を参照します。
+`https://uri.fiware.org/ns/dataModels#Building` を参照します。
 
 **Building** の定義から、必須の `category` と `address` があることがわかります。
 
@@ -655,7 +655,7 @@ datamodels.context.jsonld created
         "type": "@type",
         "id": "@id",
         "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
-        "fiware": "https://uri.fiware.org/ns/data-models#",
+        "fiware": "https://uri.fiware.org/ns/dataModels#",
         "schema": "https://schema.org/",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
