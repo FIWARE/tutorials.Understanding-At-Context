@@ -215,7 +215,8 @@ It should be noted that definitions of the models examined so far are very gener
 to be of use in a working system, however using these models as the basis of interoperability will ensure that the
 resulting `@context` file will be understandable to the widest number of systems.
 
-> **Note:** The Data Models used here for `@context` generation are defined using OpenAPI 3.0
+> [!NOTE]
+> The Data Models used here for `@context` generation are defined using OpenAPI 3.0
 > [Swagger format](https://swagger.io/specification). To help with the generation of IRIs the specification has been
 > extended with additional annotations as necessary. The `x-ngsi` attribute, as the name suggests is just a simple
 > [Specification Extension](https://swagger.io/specification/#specificationExtensions) - usually it is not relevant to
@@ -592,7 +593,8 @@ The core context file defines the base structure of the NGSI-LD API payload (thi
 `Point`) whereas the _generated_ NGSI-LD context for the application itself defines the entities (`Building`) and
 `attributes` without defining a payload structure.
 
-> **Note:** The values on the right hand side of each definition are URIs not URLs.
+> [!NOTE]
+> The values on the right hand side of each definition are URIs not URLs.
 >
 > Not all `@context` entries in JSON-LD resolve to web-pages, and they don't have to, because primarily they are for
 > machine readability not human readability. Some values do expand to a web-page for example -
