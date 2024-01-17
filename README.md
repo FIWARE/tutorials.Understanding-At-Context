@@ -223,10 +223,15 @@ resulting `@context` file will be understandable to the widest number of systems
 > Swagger, and indeed you could generate a simple `@context` file without it, but the data held within in has been used
 > to help generate a rich [`@graph`](https://w3c.github.io/json-ld-syntax/#dfn-graph-object) and more comprehensive
 > documentation.
->
+
+
+> [!CAUTION]
 > The simple NGSI-LD `@context` generator in the tutorial defaults to using `uri.fiware.org` namespaces and updates with
 > corrected URIs based on the `x-ngsi.uri` and `x-ngsi.uri-prefix` attributes. The code and defaults found within this
 > tutorial can be altered if necessary.
+>
+> For more complex scenarios, additional `@context` generation tools can be found on
+> the [Smart Data Models](https://smartdatamodels.org/) website.
 
 ## Amending Models
 
@@ -491,7 +496,7 @@ datamodels.context-ngsi.jsonld created
 
 Opening the generated file, the following structure can be found:
 
-```jsonld
+```json
 {
     "@context": {
         "type": "@type",
@@ -554,7 +559,7 @@ the default _normalized_ format. The _normalized_ format includes a structure of
 
 For example this is a `Building` in _normalized_ NGSI-LD format:
 
-```jsonld
+```json
 {
     "id": "urn:ngsi-ld:Building:001",
     "type": "Building",
@@ -639,7 +644,7 @@ datamodels.context.jsonld created
 
 Opening the generated file, the following structure can be found:
 
-```jsonld
+```json
 {
     "@context": {
         "type": "@type",
@@ -729,7 +734,7 @@ Further information about `@graph` can be found in the section on
 If NGSI-LD requests are made using the `options=keyValues` parameter, the response a generic JSON-LD object (as shown
 below) rather than a full NGSI-LD object:
 
-```jsonld
+```json
 {
     "id": "urn:ngsi-ld:Building:001",
     "type": "Building",

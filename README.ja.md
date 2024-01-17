@@ -517,7 +517,7 @@ Creating a NGSI-LD @context file for normalized interactions datamodels.context-
 
 生成されたファイルを開くと、次の構造が見つかります:
 
-```jsonld
+```json
 {
     "@context": {
         "type": "@type",
@@ -578,7 +578,7 @@ NGSI-LD の `@context` はすべての NGSI-LD CRUD 操作に使用され、デ�
 
 たとえば、これは _normalized_ NGSI-LD 形式の `Building` です:
 
-```jsonld
+```json
 {
     "id": "urn:ngsi-ld:Building:001",
     "type": "Building",
@@ -649,7 +649,7 @@ datamodels.context.jsonld created
 
 生成されたファイルを開くと、次の構造が見つかります:
 
-```jsonld
+```json
 {
     "@context": {
         "type": "@type",
@@ -741,7 +741,7 @@ datamodels.context.jsonld created
 `options=keyValues` パラメータを使用して NGSI-LD リクエストが行われた場合、レスポンスは完全な NGSI-LD
 オブジェクトではなく、以下のような、一般的な JSON-LD オブジェクトです:
 
-```jsonld
+```json
 {
     "id": "urn:ngsi-ld:Building:001",
     "type": "Building",

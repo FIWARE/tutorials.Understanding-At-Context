@@ -17,8 +17,12 @@ function replaceCommonContextURLs(text) {
 }
 
 function addEntry(text, type, key, uri, value, expand) {
+  if (key.includes(':')){
+    console.error(`Unable to process file. Attribute contains colons ${key}`)
+    process.exit(1);
+  }
   if (expand) {
-    if (type === 'Property' || type === 'GeoProperty') {
+    if (type === 'Property' || type === 'GeoProperty' || type === 'LanguageProperty') {
       let entry;
       if (value.type === 'object') {
         entry = '"' + key + '": "' + uri + '"';
@@ -39,13 +43,15 @@ function addEntry(text, type, key, uri, value, expand) {
       text.push(entry);
     } else if (type === 'Relationship') {
       text.push('"' + key + '": {"@id": "' + uri + '", "@type": "@id"}');
-    } else if (type === 'EnumProperty') {
+    } else if (type === 'EnumProperty' || type === 'VocabProperty' ) {
       text.push('"' + key + '": {"@id": "' + uri + '", "@type": "@vocab"}');
     }
   } else if (
     type === 'Property' ||
     type === 'Relationship' ||
     type === 'EnumProperty' ||
+    type === 'VocabProperty' ||
+    type === 'LanguageProperty' ||
     type === 'GeoProperty'
   ) {
     text.push('"' + key + '": "' + uri + '"');
