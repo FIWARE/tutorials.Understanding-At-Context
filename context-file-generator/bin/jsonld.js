@@ -17,10 +17,19 @@ function replaceCommonContextURLs(text) {
 }
 
 function addEntry(text, type, key, uri, value, expand) {
+  
+  // Simple context creator unable to deal with JSON-LD edge cases.
   if (key.includes(':')){
     console.error(`Unable to process file. Attribute contains colons ${key}`)
     process.exit(1);
+  } else if (key.includes('/')){
+    console.error(`Unable to process file. Attribute contains slashes ${key}`)
+    process.exit(1);
+  } else if (key.includes(' ')){
+    console.error(`Unable to process file. Attribute contains spaces ${key}`)
+    process.exit(1);
   }
+
   if (expand) {
     if (type === 'Property' || type === 'GeoProperty' || type === 'LanguageProperty') {
       let entry;
