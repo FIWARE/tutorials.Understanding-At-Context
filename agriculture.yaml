@@ -116,11 +116,8 @@ components:
       x-ngsi:
         uri-prefix: 'https://w3id.org/saref#'
       enum:
-        - airPollution
-        - atmosphericPressure
         - depth
         - eatingActivity
-        - fillingLevel
         - humidity
         - location
         - milking
@@ -138,11 +135,8 @@ components:
         - windDirection
         - windSpeed
       description: >
-          -   `airPollution`
-          -   `atmosphericPressure`
           -   `depth`
           -   `eatingActivity`
-          -   `fillingLevel`
           -   `humidity`
           -   `location`
           -   `milking`

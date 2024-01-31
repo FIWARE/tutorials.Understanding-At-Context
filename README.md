@@ -425,8 +425,7 @@ FillingLevelSensor:
             $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/fillingLevel
 ```
 
-4.  The list of controlled attributes can be reduced to those measured by Agricultural devices (e.g `airPollution`,
-    `atmosphericPressure`, `depth`, `eatingActivity`, `fillingLevel`, `humidity`, `location`, `milking`, `motion`,
+4.  The list of controlled attributes can be reduced to those measured by Agricultural devices (e.g `depth`, `eatingActivity`, `humidity`, `location`, `milking`, `motion`,
     `movementActivity`, `occupancy`, `precipitation`, `pressure`, `soilMoisture`, `solarRadiation`, `temperature`,
     `waterConsumption`, `weatherConditions`, `weight`, `windDirection`, `windSpeed`)
 

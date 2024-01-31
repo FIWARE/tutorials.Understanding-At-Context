@@ -437,8 +437,7 @@ FillingLevelSensor:
             $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/fillingLevel
 ```
 
-4.  制御された属性のリストは、アグリカルチャ用デバイスによって測定されたものです (たとえば、`airPollution`,
-    `atmosphericPressure`, `depth`, `eatingActivity`, `fillingLevel`, `humidity`, `location`, `milking`, `motion`,
+4.  制御された属性のリストは、アグリカルチャ用デバイスによって測定されたものです (たとえば、`depth`, `eatingActivity`,  `humidity`, `location`, `milking`, `motion`,
     `movementActivity`, `occupancy`, `precipitation`, `pressure`, `soilMoisture`, `solarRadiation`, `temperature`,
     `waterConsumption`, `weatherConditions`, `weight`, `windDirection`, `windSpeed`)
 
