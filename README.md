@@ -221,6 +221,7 @@ to be of use in a working system, however using these models as the basis of int
 resulting `@context` file will be understandable to the widest number of systems.
 
 > [!NOTE]
+>
 > The Data Models used here for `@context` generation are defined using OpenAPI 3.0
 > [Swagger format](https://swagger.io/specification). To help with the generation of IRIs the specification has been
 > extended with additional annotations as necessary. The `x-ngsi` attribute, as the name suggests is just a simple
@@ -229,15 +230,13 @@ resulting `@context` file will be understandable to the widest number of systems
 > to help generate a rich [`@graph`](https://w3c.github.io/json-ld-syntax/#dfn-graph-object) and more comprehensive
 > documentation.
 
-
-> [!CAUTION]
-> The simple NGSI-LD `@context` generator in the tutorial defaults to using `uri.fiware.org` namespaces and updates with
-> corrected URIs based on the `x-ngsi.uri` and `x-ngsi.uri-prefix` attributes. The code and defaults found within this
-> tutorial should be altered to a more widely recognised standard ontology provider within your domain as necessary for
-> your use case.
+> [!CAUTION] The simple NGSI-LD `@context` generator in the tutorial defaults to using `uri.fiware.org` namespaces and
+> updates with corrected URIs based on the `x-ngsi.uri` and `x-ngsi.uri-prefix` attributes. The code and defaults found
+> within this tutorial should be altered to a more widely recognised standard ontology provider within your domain as
+> necessary for your use case.
 >
-> For more complex scenarios, additional `@context` generation tools can be found on
-> the [Smart Data Models](https://smartdatamodels.org/) website.
+> For more complex scenarios, additional `@context` generation tools can be found on the
+> [Smart Data Models](https://smartdatamodels.org/) website.
 
 ## Amending Models
 
@@ -430,9 +429,10 @@ FillingLevelSensor:
             $ref: https://fiware.github.io/tutorials.NGSI-LD/models/saref-terms.yaml#/fillingLevel
 ```
 
-4.  The list of controlled attributes can be reduced to those measured by Agricultural devices (e.g `depth`, `eatingActivity`, `humidity`, `location`, `milking`, `motion`,
-    `movementActivity`, `occupancy`, `precipitation`, `pressure`, `soilMoisture`, `solarRadiation`, `temperature`,
-    `waterConsumption`, `weatherConditions`, `weight`, `windDirection`, `windSpeed`)
+4.  The list of controlled attributes can be reduced to those measured by Agricultural devices (e.g `depth`,
+    `eatingActivity`, `humidity`, `location`, `milking`, `motion`, `movementActivity`, `occupancy`, `precipitation`,
+    `pressure`, `soilMoisture`, `solarRadiation`, `temperature`, `waterConsumption`, `weatherConditions`, `weight`,
+    `windDirection`, `windSpeed`)
 
 5.  The other definitions remain unchanged.
 
@@ -584,8 +584,8 @@ For example this is a `Building` in _normalized_ NGSI-LD format:
     "location": {
         "type": "GeoProperty",
         "value": {
-             "type": "Point",
-             "coordinates": [13.35, 52.5144]
+            "type": "Point",
+            "coordinates": [13.35, 52.5144]
         }
     },
     "name": {
@@ -604,6 +604,7 @@ The core context file defines the base structure of the NGSI-LD API payload (thi
 `attributes` without defining a payload structure.
 
 > [!NOTE]
+>
 > The values on the right hand side of each definition are URIs not URLs.
 >
 > Not all `@context` entries in JSON-LD resolve to web-pages, and they don't have to, because primarily they are for
