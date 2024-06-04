@@ -35,7 +35,7 @@ The tutorial is mainly concerned with online and command-line tooling.
 -   [Prerequisites](#prerequisites)
     -   [Swagger](#swagger)
     -   [Docker](#docker)
-    -   [Cygwin](#cygwin)
+    -   [WSL](#wsl)
 -   [Start Up](#start-up)
 -   [Creating NGSI-LD Data Models](#creating-ngsi-ld-data-models)
     -   [The Scenario](#the-scenario)
@@ -134,10 +134,11 @@ into their respective environments.
 -   To install Docker on Mac follow the instructions [here](https://docs.docker.com/docker-for-mac/)
 -   To install Docker on Linux follow the instructions [here](https://docs.docker.com/install/)
 
-## Cygwin
+## WSL
 
-We will start up our services using a simple bash script. Windows users should download [cygwin](http://www.cygwin.com/)
-to provide a command-line functionality similar to a Linux distribution on Windows.
+We will start up our services using a simple bash script. Windows users should download the
+[Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) to provide a command-line
+functionality similar to a Linux distribution on Windows.
 
 # Start Up
 

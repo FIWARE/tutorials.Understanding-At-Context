@@ -28,7 +28,7 @@
 -   [前提条件](#prerequisites)
     -   [Swagger](#swagger)
     -   [Docker](#docker)
-    -   [Cygwin](#cygwin)
+    -   [WSL](#wsl)
 -   [起動](#start-up)
 -   [NGSI-LD データモデルの作成](#creating-ngsi-ld-data-models)
     -   [シナリオ](#the-scenario)
@@ -138,11 +138,9 @@ API 仕様は YAML または JSON で記述できます。この形式は、学�
 -   Mac に Docker をインストールするには、[こちら](https://docs.docker.com/docker-for-mac/)の指示に従ってください
 -   Linux に Docker をインストールするには、[こちら](https://docs.docker.com/install/)の指示に従ってください
 
-<a name="cygwin"/>
+## WSL
 
-## Cygwin
-
-簡単な bash スクリプトを使用してサービスを起動します。Windows ユーザは、[cygwin](http://www.cygwin.com/) を
+簡単な bash スクリプトを使用してサービスを起動します。Windows ユーザは、[を使用して Windows に Linux をインストールする方法](https://learn.microsoft.com/ja-jp/windows/wsl/install) を
 ダウンロードして、Windows 上の Linux ディストリビューションと同様のコマンドライン機能を提供する必要があります。
 
 <a name="start-up"/>
