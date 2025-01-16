@@ -580,8 +580,8 @@ NGSI-LD の `@context` はすべての NGSI-LD CRUD 操作に使用され、デ�
     "id": "urn:ngsi-ld:Building:001",
     "type": "Building",
     "category": {
-        "type": "Property",
-        "value": "barn"
+        "type": "VocabProperty",
+        "vocab": "barn"
     },
     "address": {
         "type": "Property",
@@ -742,7 +742,9 @@ datamodels.context.jsonld created
 {
     "id": "urn:ngsi-ld:Building:001",
     "type": "Building",
-    "category": "barn",
+    "category": {
+        "vocab": "barn"
+    },
     "address": {
         "streetAddress": "Großer Stern",
         "addressRegion": "Berlin",

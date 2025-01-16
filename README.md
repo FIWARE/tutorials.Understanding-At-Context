@@ -572,8 +572,8 @@ For example this is a `Building` in _normalized_ NGSI-LD format:
     "id": "urn:ngsi-ld:Building:001",
     "type": "Building",
     "category": {
-        "type": "Property",
-        "value": "barn"
+        "type": "VocabProperty",
+        "vocab": "barn"
     },
     "address": {
         "type": "Property",
@@ -747,7 +747,9 @@ below) rather than a full NGSI-LD object:
 {
     "id": "urn:ngsi-ld:Building:001",
     "type": "Building",
-    "category": "barn",
+    "category": {
+        "vocab": "barn"
+    },
     "address": {
         "streetAddress": "Großer Stern",
         "addressRegion": "Berlin",
