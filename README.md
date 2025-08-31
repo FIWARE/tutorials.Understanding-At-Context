@@ -30,7 +30,7 @@ git checkout NGSI-LD
 ./services start
 ```
 
-| [![NGSI LD](https://img.shields.io/badge/NGSI-LD-d6604d.svg)](https://cim.etsi.org/NGSI-LD/official/0--1.html) | :books: [Documentation](https://github.com/FIWARE/tutorials.Understanding-At-Context/tree/NGSI-LD) | ![](https://img.shields.io/github/last-commit/fiware/tutorials.Understanding-At-Context/NGSI-LD)
+| [![NGSI LD](https://img.shields.io/badge/NGSI-LD-d6604d.svg)](https://cim.etsi.org/NGSI-LD/official/front-page.html) | :books: [Documentation](https://github.com/FIWARE/tutorials.Understanding-At-Context/tree/NGSI-LD) | ![](https://img.shields.io/github/last-commit/fiware/tutorials.Understanding-At-Context/NGSI-LD)
 | --- | --- | ---
 
 
