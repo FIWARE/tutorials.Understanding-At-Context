@@ -735,7 +735,7 @@ datamodels.context.jsonld created
 `@graph` の詳細については、[名前付きグラフ](https://w3c.github.io/json-ld-syntax/#named-graphs)のセクションを
 参照してください。
 
-`options=keyValues` パラメータを使用して NGSI-LD リクエストが行われた場合、レスポンスは完全な NGSI-LD
+`format=simplified` パラメータを使用して NGSI-LD リクエストが行われた場合、レスポンスは完全な NGSI-LD
 オブジェクトではなく、以下のような、一般的な JSON-LD オブジェクトです:
 
 ```json
